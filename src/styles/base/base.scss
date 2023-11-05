@@ -1,0 +1,12 @@
+// Style de bases :
+@font-face {
+  font-family: "Montserrat", sans-serif;
+  src: url("../../assets/fonts/Montserrat-Medium.ttf") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: "Montserrat", sans-serif;
+}

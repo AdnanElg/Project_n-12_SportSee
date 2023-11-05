@@ -1,0 +1,39 @@
+// Style Navbar :
+
+header {
+  z-index: 3;
+  position: fixed;
+  width: 100%;
+
+  .navbar {
+    background-color: #020203;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      height: 91px;
+      width: 93%;
+
+      a {
+        text-decoration: none;
+      }
+
+      a li img {
+        width: 180px;
+        height: 60px;
+        margin-left: 28px;
+      }
+
+      a li {
+        color: #ffffff;
+        font-size: 24px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+    }
+  }
+}

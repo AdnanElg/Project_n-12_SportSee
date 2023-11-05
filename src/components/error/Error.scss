@@ -1,0 +1,27 @@
+// Style error :
+.section__error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 130px;
+
+  img {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  p {
+    font-size: 36px;
+    font-weight: 500;
+    color: #ff6060;
+    text-align: center;
+  }
+
+  span {
+    color: #ff6060;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: underline;
+  }
+}
