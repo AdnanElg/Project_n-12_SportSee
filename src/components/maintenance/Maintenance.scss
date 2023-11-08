@@ -1,0 +1,26 @@
+// Style Maintenance :
+.container__maintenance {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+
+  img {
+    width: 50%;
+  }
+
+  p {
+    font-size: 50px;
+    font-weight: 500;
+    color: #000;
+    width: max-content;
+  }
+
+  span {
+    color: #000;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: underline;
+  }
+}

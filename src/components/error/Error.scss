@@ -1,5 +1,5 @@
 // Style error :
-.section__error {
+.container__error {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,12 +14,13 @@
   p {
     font-size: 36px;
     font-weight: 500;
-    color: #ff6060;
+    width: max-content;
+    color: #ff0002;
     text-align: center;
   }
 
   span {
-    color: #ff6060;
+    color: #ff0002;
     font-size: 20px;
     font-weight: 500;
     text-decoration: underline;
