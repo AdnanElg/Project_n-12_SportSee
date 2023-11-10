@@ -1,9 +1,6 @@
 // Style Home :
 .container__home {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: block;
 
   & section {
     margin: 140px 90px 88px 210px;

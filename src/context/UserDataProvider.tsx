@@ -25,23 +25,22 @@ const UserDataProvider = (props: UserDataProviderProps) => {
   });
 
   useEffect(() => {
-    setApiState({ ...apiState, loading: true });
-
-    axios
-      .get(import.meta.env.VITE_REACT_API_URL)
-      .then((res) => {
-        console.log(res);
-        if (res.status !== 200) throw new Error("Wrong resources error");
-        return res.data;
-      })
-      .then((data) => {
+    const fetchDataUserAll = async () => {
+      try {
+        setApiState({ ...apiState, loading: true });
+        const responce = await axios.get(import.meta.env.VITE_REACT_API_URL);
+        if (responce.status !== 200) {
+          throw new Error("Wrong resources error");
+        }
+        const data = responce.data;
         console.log(data);
         setApiState({ loading: false, error: false, data: data });
-      })
-      .catch((e) => {
-        console.log(e);
+      } catch (error) {
+        console.log(error);
         setApiState({ loading: false, error: true, data: null });
-      });
+      }
+    };
+    fetchDataUserAll();
   }, []);
 
   return (
