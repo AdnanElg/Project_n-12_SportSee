@@ -1,53 +1,108 @@
-import { createContext, useState, useEffect } from "react";
-import axios from "axios";
+import React, { createContext } from "react";
+import {
+  USER_MAIN_DATA,
+  USER_ACTIVITY,
+  USER_AVERAGE_SESSIONS,
+  USER_PERFORMANCE,
+} from "../data/MockUp.tsx";
+
+type UserMainDataType = {
+  id: number;
+  userInfos: {
+    firstName: string;
+    lastName: string;
+    age: number;
+  };
+  todayScore: number;
+  keyData: {
+    calorieCount: number;
+    proteinCount: number;
+    carbohydrateCount: number;
+    lipidCount: number;
+  };
+}[];
+
+type UserActivityType = {
+  userId: number;
+  sessions: {
+    day: string;
+    kilogram: number;
+    calories: number;
+  }[];
+}[];
+
+type UserAverageSessionsType = {
+  userId: number;
+  sessions: {
+    day: number;
+    sessionLength: number;
+  }[];
+}[];
+
+type UserPerformanceType = {
+  userId: number;
+  kind: {
+    [key: number]: string;
+  };
+  data: {
+    value: number;
+    kind: number;
+  }[];
+}[];
 
 type UserDataType = {
-  loading: boolean;
-  error: boolean;
-  data: null | [];
-};
-
-type UserDataContextType = {
-  apiState: UserDataType;
+  getUserMainData: () => UserMainDataType[0];
+  getUserActivity: () => UserActivityType[0];
+  getUserAverageSessions: () => UserAverageSessionsType[0];
+  getUserPerformance: () => UserPerformanceType[0];
 };
 
 type UserDataProviderProps = {
   children: React.ReactNode;
 };
 
-export const UserDataContext = createContext<UserDataContextType | null>(null);
+export const UserDataContext = createContext<UserDataType>({} as UserDataType);
 
 const UserDataProvider = (props: UserDataProviderProps) => {
-  const [apiState, setApiState] = useState<UserDataType>({
-    loading: false,
-    error: false,
-    data: null,
-  });
+  try {
+    if (!USER_MAIN_DATA || USER_MAIN_DATA.length === 0) {
+      throw new Error(
+        "Error in UserDataContext: USER_MAIN_DATA is empty or has an unexpected format."
+      );
+    }
 
-  useEffect(() => {
-    const fetchDataUserAll = async () => {
-      try {
-        setApiState({ ...apiState, loading: true });
-        const responce = await axios.get(import.meta.env.VITE_REACT_API_URL);
-        if (responce.status !== 200) {
-          throw new Error("Wrong resources error");
-        }
-        const data = responce.data;
-        console.log(data);
-        setApiState({ loading: false, error: false, data: data });
-      } catch (error) {
-        console.log(error);
-        setApiState({ loading: false, error: true, data: null });
-      }
-    };
-    fetchDataUserAll();
-  }, []);
+    if (!USER_ACTIVITY || USER_ACTIVITY.length === 0) {
+      throw new Error(
+        "Error in UserDataContext: USER_ACTIVITY is empty or has an unexpected format."
+      );
+    }
 
-  return (
-    <UserDataContext.Provider value={{ apiState }}>
-      {props.children}
-    </UserDataContext.Provider>
-  );
+    if (!USER_AVERAGE_SESSIONS || USER_AVERAGE_SESSIONS.length === 0) {
+      throw new Error(
+        "Error in UserDataContext: USER_AVERAGE_SESSIONS is empty or has an unexpected format."
+      );
+    }
+
+    if (!USER_PERFORMANCE || USER_PERFORMANCE.length === 0) {
+      throw new Error(
+        "Error in UserDataContext: USER_PERFORMANCE is empty or has an unexpected format."
+      );
+    }
+    return (
+      <UserDataContext.Provider
+        value={{
+          getUserMainData: () => USER_MAIN_DATA[0],
+          getUserActivity: () => USER_ACTIVITY[0],
+          getUserAverageSessions: () => USER_AVERAGE_SESSIONS[0],
+          getUserPerformance: () => USER_PERFORMANCE[0],
+        }}
+      >
+        {props.children}
+      </UserDataContext.Provider>
+    );
+  } catch (error) {
+    throw new Error(`Error creating UserDataContext: ${error}`);
+  }
 };
 
 export default UserDataProvider;
