@@ -1,0 +1,46 @@
+// Style WeightChart :
+.container__weightcart {
+  background-color: #fbfbfb;
+  width: 75%;
+  padding: 30px;
+  border-radius: 10px;
+
+  &__legend {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 30px;
+
+    h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #20253a;
+      padding-top: 5px;
+    }
+
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 45px;
+      padding-right: 30px;
+
+      li {
+        list-style: disc;
+        color: #74798c;
+        font-weight: 500;
+        font-size: 15px;
+      }
+
+      li:nth-child(1)::marker {
+        font-size: 20px;
+        color: #282d30;
+      }
+
+      li:nth-child(2)::marker {
+        font-size: 20px;
+        color: #e60000;
+      }
+    }
+  }
+}
