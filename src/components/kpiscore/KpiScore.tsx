@@ -1,7 +1,7 @@
 import "./KpiScore.scss";
 
 const KpiScore = () => {
-  return <div className="kpiscore"></div>;
+  return <div className="container__kpiscore"></div>;
 };
 
 export default KpiScore;
