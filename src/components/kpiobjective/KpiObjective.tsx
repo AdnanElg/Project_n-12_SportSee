@@ -1,7 +1,7 @@
-import React from "react";
+import "./KpiObjective.scss";
 
 const KpiObjective = () => {
-  return <div></div>;
+  return <div className="container__kpiobjective"></div>;
 };
 
 export default KpiObjective;

@@ -1,7 +1,7 @@
-import React from "react";
+import "./KpiPerformance.scss";
 
 const KpiPerformance = () => {
-  return <div></div>;
+  return <div className="container__kpiperformance"></div>;
 };
 
 export default KpiPerformance;

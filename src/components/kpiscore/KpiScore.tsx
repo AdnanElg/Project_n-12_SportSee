@@ -1,7 +1,7 @@
-import React from "react";
+import "./KpiScore.scss";
 
 const KpiScore = () => {
-  return <div></div>;
+  return <div className="kpiscore"></div>;
 };
 
 export default KpiScore;
