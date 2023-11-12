@@ -26,7 +26,7 @@ const Home = () => {
               </div>
             </div>
             <div className="container__home__section__data__health">
-              <HealthData />
+              <HealthData dataUserMain={getUserMainData().keyData} />
             </div>
           </div>
         </>
