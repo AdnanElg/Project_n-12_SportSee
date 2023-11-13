@@ -9,7 +9,7 @@ import KpiScore from "../../components/kpiscore/KpiScore";
 import HealthData from "../../components/healthdata/HealthData";
 
 const Home = () => {
-  const { getUserMainData, getUserActivity } = useContext(UserDataContext);
+  const { getUserMainData, getUserActivity, getUserAverageSessions } = useContext(UserDataContext);
 
   return (
     <main className="container__home">
@@ -20,7 +20,7 @@ const Home = () => {
             <div className="container__home__section__data__chart">
               <WeightChart dataActivity={getUserActivity().sessions} />
               <div className="container__home__section__data__chart__kpi">
-                <KpiObjective />
+                <KpiObjective dataUserAverageSessions={getUserAverageSessions().sessions}/>
                 <KpiPerformance />
                 <KpiScore />
               </div>
