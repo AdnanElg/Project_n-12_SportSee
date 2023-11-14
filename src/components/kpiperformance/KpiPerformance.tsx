@@ -1,42 +1,31 @@
 import "./KpiPerformance.scss";
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 
+// Mettre les data avec les vraix value en props et revoir espacement des valeur :
 const data = [
   {
-    subject: 'Math',
-    A: 120,
-    B: 110,
-    fullMark: 150,
+    subject: 'intensité',
+    value: 90,
   },
   {
-    subject: 'Chinese',
-    A: 98,
-    B: 130,
-    fullMark: 150,
+    subject: 'vitesse',
+    value: 200,
   },
   {
-    subject: 'English',
-    A: 86,
-    B: 130,
-    fullMark: 150,
+    subject: 'force',
+    value: 50,
   },
   {
-    subject: 'Geography',
-    A: 99,
-    B: 100,
-    fullMark: 150,
+    subject: 'endurance',
+    value: 140,
   },
   {
-    subject: 'Physics',
-    A: 85,
-    B: 90,
-    fullMark: 150,
+    subject: 'énergie',
+    value: 120,
   },
   {
-    subject: 'History',
-    A: 65,
-    B: 85,
-    fullMark: 150,
+    subject: 'cardio',
+    value: 80,
   },
 ];
 
@@ -44,12 +33,11 @@ const data = [
 const KpiPerformance = () => {
   return (
     <div className="container__kpiperformance">
-       <ResponsiveContainer minWidth={280} minHeight={280}>
-        <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
-          <PolarGrid />
-          <PolarAngleAxis dataKey="subject" />
-          <PolarRadiusAxis />
-          <Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+       <ResponsiveContainer minWidth={230} minHeight={250}>
+        <RadarChart  cx="50%" cy="50%" outerRadius="70%" data={data} >
+          <PolarGrid  radialLines={false} />
+          <PolarAngleAxis dataKey="subject" tick={{ fontSize: 12, fill: "white", fontWeight: "bold"}} dy={3} />
+          <Radar dataKey="value" fillOpacity={0.6} fill="#BF0F0E"/>
         </RadarChart>
       </ResponsiveContainer>
     </div>
