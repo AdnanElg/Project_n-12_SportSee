@@ -1,27 +1,29 @@
-import { PieChart, Pie, Cell } from 'recharts';
+import { PieChart, Pie} from 'recharts';
 import "./KpiScore.scss";
 
-// Rajouter les vraix data et revoir comment arrpondir les bord de la barre de progression + mettre aux centre la valeur de votre objectif
-const data = [
-  { name: 'score', todayScore: 200 }
-];
+const KpiScore = ({dataScore}) => {
+  const score = dataScore * 100;
 
-const KpiScore = () => {
+  const data = [{
+    "todayScore" : score
+  }]
+  
   return (
     <div className="container__kpiscore">
+      <h2 className="container__kpiscore__title">Score</h2>
+      <p className="container__kpiscore__score">{score}%<span><br/>de votre<br></br> objectif</span></p>
       <PieChart width={230} height={250}>
         <Pie
           data={data}
-          cx={110}
-          cy={110}
+          cx={105}
+          cy={140}
           innerRadius={85}
           outerRadius={100}
           paddingAngle={150}
           dataKey="todayScore"
+          cornerRadius={10} 
+          fill='#FF0101'
         >
-          {data.map((item, index) => (
-            <Cell key={`cell-${index}`} fill='#FF0101'/>
-          ))}
         </Pie>
       </PieChart>
     </div>

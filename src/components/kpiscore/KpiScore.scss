@@ -3,5 +3,32 @@
     justify-content: center ;
     background-color: #FBFBFB;
     border-radius: 10px;
-    width: 32%;
+    width: 33%;
+    position: relative;
+
+    &__title {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #20253A;
+    }
+
+    &__score {
+        position: absolute;
+        text-align: center;
+        top: 110px;
+        right: 3px;
+        width: 100%;
+        font-weight: 600;
+        color: #282D30;
+        font-size: 28px;
+        line-height: 22px;
+
+        span {
+            font-size: 16px;
+            color: #74798C;
+        }
+    }
 }

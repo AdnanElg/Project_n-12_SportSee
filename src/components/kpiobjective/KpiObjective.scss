@@ -1,5 +1,18 @@
+// Style KpiObjective : 
 .container__kpiobjective {
     background-color: #FF0000;
     border-radius: 10px;
-    width: 35%;
+    width: 33%;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+
+    &__title {
+        position: absolute;
+        top: 15px;
+        left: 20px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #FFFFFF;
+        opacity: 0.8;
+    }
 }
