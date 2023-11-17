@@ -1,35 +1,12 @@
 import "./KpiPerformance.scss";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 
-const dataPerformance = [
-    {
-      value: 80,
-      kind: "cardio",
-    },
-    {
-      value: 120,
-      kind: "energy",
-    },
-    {
-      value: 140,
-      kind: "endurance",
-    },
-    {
-      value: 50,
-      kind: "force",
-    },
-    {
-      value: 200,
-      kind: "vitesse",
-    },
-    {
-      value: 90,
-      kind: "intensité",
-    },
-]
+type KpiPerformanceType = {
+  value: number;
+  kind: number;
+}[];
 
-const KpiPerformance = () => {
-
+const KpiPerformance = ({dataPerformance}:{dataPerformance: KpiPerformanceType}) => {
   return (
     <div className="container__kpiperformance">
        <ResponsiveContainer minWidth={230} minHeight={250}>

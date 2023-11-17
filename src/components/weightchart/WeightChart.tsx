@@ -10,11 +10,9 @@ import {
 } from "recharts";
 
 type UserActivityType = {
-  sessions: {
     day: string;
     kilogram: number;
     calories: number;
-  };
 }[];
 
 const WeightChart = ({ dataActivity }: { dataActivity: UserActivityType }) => {

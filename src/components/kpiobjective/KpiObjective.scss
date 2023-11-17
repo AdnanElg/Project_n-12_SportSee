@@ -6,13 +6,18 @@
     position: relative;
     transition: box-shadow 0.3s ease;
 
+    @media screen and (max-width: 1050px) {
+        width: 100%;
+    }
+
     &__title {
         position: absolute;
         top: 15px;
         left: 20px;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 500;
         color: #FFFFFF;
+        width: 60%;
         opacity: 0.8;
     }
 }

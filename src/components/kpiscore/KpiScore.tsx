@@ -1,17 +1,22 @@
 import { PieChart, Pie} from 'recharts';
+import { useState } from "react";
 import "./KpiScore.scss";
 
-const KpiScore = ({dataScore}) => {
-  const score = dataScore * 100;
+type DataType = {
+  todayScore : number
+}[];
 
-  const data = [{
-    "todayScore" : score
-  }]
+const KpiScore = ({dataScore}:{dataScore: number}) => {
+  const [score] = useState(dataScore * 100);
+  const [data] = useState<DataType>([
+    {todayScore : score}
+  ])
+  
   
   return (
     <div className="container__kpiscore">
       <h2 className="container__kpiscore__title">Score</h2>
-      <p className="container__kpiscore__score">{score}%<span><br/>de votre<br></br> objectif</span></p>
+      <p className="container__kpiscore__score">{score}% <br/><span>de votre <br/> objectif</span></p>
       <PieChart width={230} height={250}>
         <Pie
           data={data}
