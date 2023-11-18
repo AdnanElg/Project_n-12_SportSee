@@ -35,6 +35,25 @@ header {
       margin-left: 50px;
       position: relative;
 
+
+      @media screen and (max-width: 1400px) {
+        display: none;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        list-style: none;
+        position: fixed;
+        right: 0px;
+        top: 90px;
+        width: 50%;
+        height: 100%;
+        text-align: justify;
+        gap: 35px;
+        line-height: 50px;
+        padding: 20px;
+        background-color: #000;
+      }
+
       a {
         text-decoration: none;
         
@@ -48,11 +67,10 @@ header {
         font-size: 24px;
         font-weight: 500;
         cursor: pointer;
-      }
 
-
-      @media screen and (max-width: 1400px) {
-        display: none;
+        @media screen and (max-width: 1400px) {
+          font-size: 28px;
+        }
       }
     }
 
@@ -71,6 +89,14 @@ header {
       @media screen and (max-width: 1400px) {
         display: block;
       }
+    }
+
+    &__menu-visible {
+      display: flex !important;
+    }
+
+    &__menu-hidden {
+      display: none !important;
     }
   }
 }
