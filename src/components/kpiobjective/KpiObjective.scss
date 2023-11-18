@@ -20,4 +20,10 @@
         width: 60%;
         opacity: 0.8;
     }
+
+    &__tooltip {
+        background-color: white;
+        color: black;
+        padding: 0.1em 0.8em;
+    }
 }

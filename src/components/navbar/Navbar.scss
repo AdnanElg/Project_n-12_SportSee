@@ -1,5 +1,4 @@
 // Style Navbar :
-
 header {
   z-index: 3;
   position: fixed;
@@ -8,26 +7,40 @@ header {
   width: 100%;
 
   .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     background-color: #020203;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 
-    ul {
-      list-style: none;
-      display: flex;
-      flex-direction: row;
+    @media screen and (max-width: 1400px) {
+      height: 95px;
       justify-content: space-between;
+    }
+   
+    img {
+      width: 180px;
+      height: 60px;
+      margin-left: 28px;
+    }
+
+    ul {
+      display: flex;
+      justify-content: space-around;
       align-items: center;
+      list-style: none;
       height: 91px;
-      width: 93%;
+      width: 100%;
+      margin-left: 50px;
+      position: relative;
 
       a {
         text-decoration: none;
-      }
-
-      a li img {
-        width: 180px;
-        height: 60px;
-        margin-left: 28px;
+        
+        &.active {
+          border-bottom: solid 2px #ffff;
+        }
       }
 
       a li {
@@ -36,6 +49,29 @@ header {
         font-weight: 500;
         cursor: pointer;
       }
+
+
+      @media screen and (max-width: 1400px) {
+        display: none;
+      }
+    }
+
+    button {
+      display: none;
+      position: absolute;
+      right: 35px;
+      border: none;
+      background: none;
+      
+      img {
+        width: 40px;
+        cursor: pointer;
+      }
+
+      @media screen and (max-width: 1400px) {
+        display: block;
+      }
     }
   }
 }
+

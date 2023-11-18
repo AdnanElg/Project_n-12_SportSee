@@ -15,25 +15,37 @@ type DataUserAverageSessionsType = {
 
 
 const KpiObjective = ({dataUserAverageSessions}: {dataUserAverageSessions: DataUserAverageSessionsType}) => {
+  
+  const CustomToolTip = ({ active, payload }) => {
+    if (active) {
+      return (
+        <div className="container__kpiobjective__tooltip">
+          <p>{`${payload[0].value}`} min</p>
+        </div>
+      );
+    }
+    return null;
+  }
+
+  const CustomHover = ({ points }) => {
+    return (
+      <rect
+        x={points[0].x}
+        y={0}
+        height="100%"
+        width="100%"
+        fill="rgba(0, 0, 0, 0.1)"
+      />
+    );
+  };
+
   return (
     <div className="container__kpiobjective">
       <h2 className="container__kpiobjective__title">Durée moyenne des sessions</h2>
       <ResponsiveContainer width="100%" minHeight={250} >
         <LineChart data={dataUserAverageSessions} margin={{ top: 60, right: 15, left: 15, bottom: 40 }}>
           <XAxis axisLine={false} tickLine={false} dataKey="day" tick={{ fill: '#fff', fontWeight: "bold", fontSize: "12px",  dy: 30}} interval={0}/>
-          <Tooltip
-            labelStyle={{ display: "none" }}
-            itemStyle={{
-              fontSize: "12px",
-              color: "#000",
-              fontWeight: 600,
-            }}
-            contentStyle={{
-              background: "#fff",
-              border: "none"
-            }}
-            cursor={false}
-          />
+          <Tooltip content={<CustomToolTip />} cursor={<CustomHover />} />
           <Line
             dot={false}
             type="monotone"

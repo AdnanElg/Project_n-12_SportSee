@@ -4,6 +4,10 @@
   align-items: center;
   gap: 63px;
 
+  @media screen and (max-width: 1400px) {
+    width: 100%;
+  }
+
   &__icôns {
     display: flex;
     align-items: center;
@@ -13,6 +17,12 @@
     width: 230px;
     height: 120px;
     border-radius: 10px;
+
+    @media screen and (max-width: 1400px) {
+      width: 100%;
+      justify-content: flex-start;
+      padding-left: 30px;
+    }
 
     img {
       width: 60px;
