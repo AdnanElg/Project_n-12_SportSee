@@ -13,10 +13,28 @@ type DataUserAverageSessionsType = {
   sessionLength: number;
 }[];
 
+type PayloadType = {
+  chartType: undefined;
+  color: string;
+  dataKey: string;
+  fill: string;
+  formatter: undefined;
+  name: string;
+  opacity: number;
+  payload: { day: number; sessionLength: number };
+  stroke: string;
+  strokeWidth: number;
+  type: undefined;
+  unit: undefined;
+  value: number;
+}[]
+
+type Points = { x: number; y: number }[];
+
 
 const KpiObjective = ({dataUserAverageSessions}: {dataUserAverageSessions: DataUserAverageSessionsType}) => {
   
-  const CustomToolTip = ({ active, payload }) => {
+  const CustomToolTip = ({ active, payload }:{ active:boolean, payload:PayloadType }) => {
     if (active) {
       return (
         <div className="container__kpiobjective__tooltip">
@@ -27,7 +45,7 @@ const KpiObjective = ({dataUserAverageSessions}: {dataUserAverageSessions: DataU
     return null;
   }
 
-  const CustomHover = ({ points }) => {
+  const CustomHover = ({ points }:{ points:Points }) => {
     return (
       <rect
         x={points[0].x}
@@ -45,7 +63,7 @@ const KpiObjective = ({dataUserAverageSessions}: {dataUserAverageSessions: DataU
       <ResponsiveContainer width="100%" minHeight={250} >
         <LineChart data={dataUserAverageSessions} margin={{ top: 60, right: 15, left: 15, bottom: 40 }}>
           <XAxis axisLine={false} tickLine={false} dataKey="day" tick={{ fill: '#fff', fontWeight: "bold", fontSize: "12px",  dy: 30}} interval={0}/>
-          <Tooltip content={<CustomToolTip />} cursor={<CustomHover />} />
+          <Tooltip content={<CustomToolTip active={false} payload={[]} />} cursor={<CustomHover points={[]} />} />
           <Line
             dot={false}
             type="monotone"
