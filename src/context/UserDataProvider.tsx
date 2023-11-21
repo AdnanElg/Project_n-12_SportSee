@@ -51,10 +51,10 @@ type UserPerformanceType = {
 }[];
 
 type UserDataType = {
-  getUserMainData: () => UserMainDataType[0];
-  getUserActivity: () => UserActivityType[0];
-  getUserAverageSessions: () => UserAverageSessionsType[0];
-  getUserPerformance: () => UserPerformanceType[0];
+  getUserMainData: (id: number) => UserMainDataType[0] | UserMainDataType[1];
+  getUserActivity: (userId: number) => UserActivityType[0] | UserActivityType[1];
+  getUserAverageSessions: (userId: number) => UserAverageSessionsType[0] | UserAverageSessionsType[1];
+  getUserPerformance: (userId: number) => UserPerformanceType[0] | UserPerformanceType[1];
 };
 
 type UserDataProviderProps = {
@@ -65,36 +65,37 @@ export const UserDataContext = createContext<UserDataType>({} as UserDataType);
 
 const UserDataProvider = (props: UserDataProviderProps) => {
   try {
-    if (!USER_MAIN_DATA || USER_MAIN_DATA.length === 0) {
-      throw new Error(
-        "Error in UserDataContext: USER_MAIN_DATA is empty or has an unexpected format."
-      );
-    }
-
-    if (!USER_ACTIVITY || USER_ACTIVITY.length === 0) {
-      throw new Error(
-        "Error in UserDataContext: USER_ACTIVITY is empty or has an unexpected format."
-      );
-    }
-
-    if (!USER_AVERAGE_SESSIONS || USER_AVERAGE_SESSIONS.length === 0) {
-      throw new Error(
-        "Error in UserDataContext: USER_AVERAGE_SESSIONS is empty or has an unexpected format."
-      );
-    }
-
-    if (!USER_PERFORMANCE || USER_PERFORMANCE.length === 0) {
-      throw new Error(
-        "Error in UserDataContext: USER_PERFORMANCE is empty or has an unexpected format."
-      );
-    }
     return (
       <UserDataContext.Provider
         value={{
-          getUserMainData: () => USER_MAIN_DATA[0],
-          getUserActivity: () => USER_ACTIVITY[0],
-          getUserAverageSessions: () => USER_AVERAGE_SESSIONS[0],
-          getUserPerformance: () => USER_PERFORMANCE[0],
+          getUserMainData: (id) => {
+            const userMainData = USER_MAIN_DATA.find((userDataId) => userDataId.id === id);
+            if (!userMainData) {
+              throw new Error(`User with ID ${id} not found in USER_MAIN_DATA.`);
+            }
+            return userMainData as UserMainDataType[0] | UserMainDataType[1] ; 
+          }, 
+          getUserActivity: (userId) => {
+            const userActivity = USER_ACTIVITY.find((userDataId) => userDataId.userId === userId);
+            if (!userActivity) {
+              throw new Error(`User with ID ${userId} not found in USER_ACTIVITY.`);
+            }
+            return userActivity as UserActivityType[0] | UserActivityType[1];
+          },
+          getUserAverageSessions: (userId) => {
+            const userAverageSessions = USER_AVERAGE_SESSIONS.find((userDataId) => userDataId.userId === userId);
+            if (!userAverageSessions) {
+              throw new Error(`User with ID ${userId} not found in USER_AVERAGE_SESSIONS.`);
+            }
+            return userAverageSessions as UserAverageSessionsType[0] | UserAverageSessionsType[1];
+          },
+          getUserPerformance: (userId) => {
+            const userPerformance = USER_PERFORMANCE.find((userDataId) => userDataId.userId === userId);
+            if (!userPerformance) {
+              throw new Error(`User with ID ${userId} not found in USER_PERFORMANCE.`);
+            }
+            return userPerformance as UserPerformanceType[0] | UserPerformanceType[1];
+          },
         }}
       >
         {props.children}

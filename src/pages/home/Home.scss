@@ -1,56 +1,8 @@
 // Style Home :
 .container__home {
-  display: block;
-
-  &__section {
     margin: 155px 90px 88px 210px;
 
     @media screen and (max-width: 1400px) {
-      margin: 150px 50px 50px 50px;
+        margin: 150px 50px 50px 50px;
     }
-    
-    &__data {
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      gap: 35px;
-
-      @media screen and (max-width: 1400px) {
-        flex-direction: column-reverse;
-      }
-
-      &__chart {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 35px;
-        width: 80%;
-
-        @media screen and (max-width: 1400px) {
-          width: 100%;
-        }
-
-        &__kpi {
-          display: flex;
-          flex-direction: row;
-          align-items: flex-start;
-          gap: 35px;
-          width: 100%;
-
-          @media screen and (max-width: 1050px) {
-            flex-direction: column;
-          }
-        }
-      }
-      &__health {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-
-        @media screen and (max-width: 1400px) {
-          width: 100%;
-        }
-      }
-    }
-  }
 }
