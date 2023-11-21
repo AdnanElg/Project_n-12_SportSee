@@ -5,7 +5,6 @@ import lipides from "../../assets/svg/lipides.svg";
 import { useState } from "react";
 import "./HealthData.scss";
 
-
 type DataUserMainType = {
   calorieCount: number;
   proteinCount: number;
@@ -19,7 +18,6 @@ type HealthDataConfigType = {
   text: string;
   value: string;
 }[];
-
 
 const HealthData = ({ dataUserMain }: { dataUserMain: DataUserMainType }) => {
   const keyData = dataUserMain;

@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import { createContext } from "react";
 import {
   USER_MAIN_DATA,
   USER_ACTIVITY,
@@ -52,9 +52,15 @@ type UserPerformanceType = {
 
 type UserDataType = {
   getUserMainData: (id: number) => UserMainDataType[0] | UserMainDataType[1];
-  getUserActivity: (userId: number) => UserActivityType[0] | UserActivityType[1];
-  getUserAverageSessions: (userId: number) => UserAverageSessionsType[0] | UserAverageSessionsType[1];
-  getUserPerformance: (userId: number) => UserPerformanceType[0] | UserPerformanceType[1];
+  getUserActivity: (
+    userId: number
+  ) => UserActivityType[0] | UserActivityType[1];
+  getUserAverageSessions: (
+    userId: number
+  ) => UserAverageSessionsType[0] | UserAverageSessionsType[1];
+  getUserPerformance: (
+    userId: number
+  ) => UserPerformanceType[0] | UserPerformanceType[1];
 };
 
 type UserDataProviderProps = {
@@ -69,32 +75,52 @@ const UserDataProvider = (props: UserDataProviderProps) => {
       <UserDataContext.Provider
         value={{
           getUserMainData: (id) => {
-            const userMainData = USER_MAIN_DATA.find((userDataId) => userDataId.id === id);
+            const userMainData = USER_MAIN_DATA.find(
+              (userDataId) => userDataId.id === id
+            );
             if (!userMainData) {
-              throw new Error(`User with ID ${id} not found in USER_MAIN_DATA.`);
+              throw new Error(
+                `User with ID ${id} not found in USER_MAIN_DATA.`
+              );
             }
-            return userMainData as UserMainDataType[0] | UserMainDataType[1] ; 
-          }, 
+            return userMainData as UserMainDataType[0] | UserMainDataType[1];
+          },
           getUserActivity: (userId) => {
-            const userActivity = USER_ACTIVITY.find((userDataId) => userDataId.userId === userId);
+            const userActivity = USER_ACTIVITY.find(
+              (userDataId) => userDataId.userId === userId
+            );
             if (!userActivity) {
-              throw new Error(`User with ID ${userId} not found in USER_ACTIVITY.`);
+              throw new Error(
+                `User with ID ${userId} not found in USER_ACTIVITY.`
+              );
             }
             return userActivity as UserActivityType[0] | UserActivityType[1];
           },
           getUserAverageSessions: (userId) => {
-            const userAverageSessions = USER_AVERAGE_SESSIONS.find((userDataId) => userDataId.userId === userId);
+            const userAverageSessions = USER_AVERAGE_SESSIONS.find(
+              (userDataId) => userDataId.userId === userId
+            );
             if (!userAverageSessions) {
-              throw new Error(`User with ID ${userId} not found in USER_AVERAGE_SESSIONS.`);
+              throw new Error(
+                `User with ID ${userId} not found in USER_AVERAGE_SESSIONS.`
+              );
             }
-            return userAverageSessions as UserAverageSessionsType[0] | UserAverageSessionsType[1];
+            return userAverageSessions as
+              | UserAverageSessionsType[0]
+              | UserAverageSessionsType[1];
           },
           getUserPerformance: (userId) => {
-            const userPerformance = USER_PERFORMANCE.find((userDataId) => userDataId.userId === userId);
+            const userPerformance = USER_PERFORMANCE.find(
+              (userDataId) => userDataId.userId === userId
+            );
             if (!userPerformance) {
-              throw new Error(`User with ID ${userId} not found in USER_PERFORMANCE.`);
+              throw new Error(
+                `User with ID ${userId} not found in USER_PERFORMANCE.`
+              );
             }
-            return userPerformance as UserPerformanceType[0] | UserPerformanceType[1];
+            return userPerformance as
+              | UserPerformanceType[0]
+              | UserPerformanceType[1];
           },
         }}
       >
