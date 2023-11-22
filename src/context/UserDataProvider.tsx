@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useEffect } from "react";
 import {
   USER_MAIN_DATA,
   USER_ACTIVITY,
@@ -76,16 +76,20 @@ const UserDataProvider = (props: UserDataProviderProps) => {
       <UserDataContext.Provider
         value={{
           getUserMainData: (id) => {
+            // eslint-disable-next-line react-hooks/rules-of-hooks
+            const navigate = useNavigate();
+
+            // eslint-disable-next-line react-hooks/rules-of-hooks
+            useEffect(() => {
+              if (id !== 12 && id !== 18) {
+                console.log(id);
+                navigate("/404");
+              }
+            }, [id]);
+
             const userMainData = USER_MAIN_DATA.find(
               (userDataId) => userDataId.id === id
             );
-
-            //! Probléme pour gestion id et redirection page 404 :
-            if (id !== 12 && id !== 18) {
-              // eslint-disable-next-line react-hooks/rules-of-hooks
-              const navigate = useNavigate();
-              navigate("/404");
-            }
 
             if (!userMainData) {
               throw new Error(
