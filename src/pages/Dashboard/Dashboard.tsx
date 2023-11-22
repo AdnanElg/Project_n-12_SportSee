@@ -11,9 +11,18 @@ import HealthData from "../../components/healthdata/HealthData";
 
 const Dashboard = () => {
   const { id } = useParams();
-
   const idAsString: string | undefined = id;
   const idAsNumber: number | undefined = Number(idAsString);
+
+  // const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   if (idAsNumber !== 12 && idAsNumber !== 18) {
+  //     navigate("/404");
+  //   } else {
+  //     console.log("ok");
+  //   }
+  // }, []);
 
   const {
     getUserMainData,

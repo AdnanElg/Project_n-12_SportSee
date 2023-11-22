@@ -1,29 +1,29 @@
-// Style KpiObjective : 
+// Style KpiObjective :
 .container__kpiobjective {
-    background-color: #FF0000;
-    border-radius: 10px;
-    width: 33%;
-    position: relative;
-    transition: box-shadow 0.3s ease;
+  background-color: #ff0000;
+  border-radius: 10px;
+  width: 33%;
+  position: relative;
+  transition: box-shadow 0.3s ease;
 
-    @media screen and (max-width: 1050px) {
-        width: 100%;
-    }
+  @media screen and (max-width: 1050px) {
+    width: 100%;
+  }
 
-    &__title {
-        position: absolute;
-        top: 15px;
-        left: 20px;
-        font-size: 15px;
-        font-weight: 500;
-        color: #FFFFFF;
-        width: 60%;
-        opacity: 0.8;
-    }
+  &__title {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #ffffff;
+    width: 60%;
+    opacity: 0.8;
+  }
 
-    &__tooltip {
-        background-color: white;
-        color: black;
-        padding: 0.1em 0.8em;
-    }
+  &__tooltip {
+    background-color: white;
+    color: black;
+    padding: 0.1em 0.8em;
+  }
 }

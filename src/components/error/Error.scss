@@ -9,6 +9,13 @@
   img {
     width: 100%;
     max-width: 500px;
+
+    @media screen and (max-width: 1200px) {
+      max-width: 400px;
+    }
+    @media screen and (max-width: 600px) {
+      max-width: 300px;
+    }
   }
 
   p {
@@ -17,6 +24,16 @@
     width: max-content;
     color: #ff0002;
     text-align: center;
+
+    @media screen and (max-width: 1200px) {
+      font-size: 30px;
+      max-width: 80%;
+      line-height: 45px;
+    }
+
+    @media screen and (max-width: 600px) {
+      max-width: 70%;
+    }
   }
 
   span {

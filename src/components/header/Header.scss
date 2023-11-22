@@ -8,13 +8,18 @@
     font-weight: 600;
     color: #000;
 
+    @media screen and (max-width: 320px) {
+      line-height: 50px;
+      font-size: 40px;
+    }
+
     span {
       color: #ff0101;
     }
   }
 
   p {
-    text-align: justify;
+    text-align: left;
     font-size: 18px;
     font-weight: 400;
   }

@@ -1,40 +1,40 @@
+// Style KpiScore :
 .container__kpiscore {
-    display: flex;
-    justify-content: center ;
-    background-color: #FBFBFB;
-    border-radius: 10px;
-    width: 33%;
-    position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: #fbfbfb;
+  border-radius: 10px;
+  width: 33%;
+  position: relative;
 
-    @media screen and (max-width: 1050px) {
-      width: 100%;
+  @media screen and (max-width: 1050px) {
+    width: 100%;
+  }
+
+  &__title {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #20253a;
+  }
+
+  &__score {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-60%, -35%);
+    font-weight: 600;
+    color: #282d30;
+    font-size: 28px;
+    line-height: 25px;
+
+    span {
+      font-size: 16px;
+      color: #74798c;
+      line-height: 15px;
     }
-
-    &__title {
-        position: absolute;
-        top: 15px;
-        left: 15px;
-        font-size: 16px;
-        font-weight: 600;
-        color: #20253A;
-    }
-
-    &__score {
-        position: absolute;
-        text-align: center;
-        top: 50%;
-        left: 50%;
-        transform: translate(-60%, -35%);
-        font-weight: 600;
-        color: #282D30;
-        font-size: 28px;
-        line-height: 25px;
-
-
-        span {
-            font-size: 16px;
-            color: #74798C;
-            line-height: 15px;
-        }
-    }
+  }
 }

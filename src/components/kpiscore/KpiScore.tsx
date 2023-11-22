@@ -7,7 +7,6 @@ type DataType = {
 }[];
 
 const KpiScore = ({ dataScore }: { dataScore: number }) => {
-  console.log(dataScore);
   const [score] = useState(dataScore * 100);
   const [data] = useState<DataType>([{ todayScore: score }]);
 

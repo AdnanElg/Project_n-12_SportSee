@@ -1,86 +1,84 @@
 // Style Users :
 .container__users {
-    h1 {
-        font-size: 37px;
-        font-weight: 600;
+  h1 {
+    font-size: 37px;
+    font-weight: 600;
+    color: #000;
+    font-style: italic;
+    text-align: justify;
+
+    @media screen and (max-width: 700px) {
+      text-align: center;
+      font-size: 30px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 130px;
+
+    @media screen and (max-width: 700px) {
+      flex-direction: column;
+      gap: 120px;
+    }
+
+    :hover {
+      transform: scale(1.1);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    &__userMen {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 30px;
+
+      img {
+        width: 160px;
+        height: 160px;
+      }
+
+      p {
         color: #000;
+        font-weight: 600;
+        font-size: 20px;
+        text-align: center;
+        text-decoration: underline;
         font-style: italic;
-        text-align: justify;
-    
-        @media screen and (max-width: 700px) {
-            text-align: center;
-            font-size: 30px;
-        }
+      }
     }
 
-    &__link {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        flex-direction: row;
-        margin-top: 130px;
-    
-        @media screen and (max-width: 700px) {
-            flex-direction: column;
-            gap: 120px;
-        }
-    
-        :hover {
-            transform: scale(1.1);
-        }
-    
-        a {
-            text-decoration: none;
-        }
-    
-        &__userMen {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 30px;
-    
-            img {
-                width: 160px;
-                height: 160px;
-            }
-    
-            p {
-                color: #000;
-                font-weight: 600;
-                font-size: 20px;
-                text-align: center;
-                text-decoration: underline;
-                font-style: italic;
-            }
-        }
-    
-    
-        &__userWomen {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 30px;
-    
-            :hover {
-                transform: scale(1.1);
-            }
-    
-            img {
-                width: 160px;
-                height: 160px;
-            }
-    
-            p {
-                color: #000;
-                font-weight: 600;
-                font-size: 20px;
-                text-align: center;
-                text-decoration: underline;
-                font-style: italic;
-            }
-        }
+    &__userWomen {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 30px;
+
+      :hover {
+        transform: scale(1.1);
+      }
+
+      img {
+        width: 160px;
+        height: 160px;
+      }
+
+      p {
+        color: #000;
+        font-weight: 600;
+        font-size: 20px;
+        text-align: center;
+        text-decoration: underline;
+        font-style: italic;
+      }
     }
+  }
 }
-

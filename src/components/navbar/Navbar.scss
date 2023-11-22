@@ -18,11 +18,16 @@ header {
       height: 95px;
       justify-content: space-between;
     }
-   
+
     img {
       width: 180px;
       height: 60px;
       margin-left: 28px;
+
+      @media screen and (max-width: 600px) {
+        width: 140px;
+        height: 50px;
+      }
     }
 
     ul {
@@ -35,7 +40,6 @@ header {
       margin-left: 50px;
       position: relative;
 
-
       @media screen and (max-width: 1400px) {
         display: none;
         flex-direction: column;
@@ -44,7 +48,7 @@ header {
         list-style: none;
         position: fixed;
         right: 0px;
-        top: 90px;
+        top: 94px;
         width: 50%;
         height: 100%;
         text-align: justify;
@@ -54,9 +58,17 @@ header {
         background-color: #000;
       }
 
+      @media screen and (max-width: 600px) {
+        width: 60%;
+      }
+
+      @media screen and (max-width: 450px) {
+        width: 80%;
+      }
+
       a {
         text-decoration: none;
-        
+
         &.active {
           border-bottom: solid 2px #ffff;
         }
@@ -71,6 +83,14 @@ header {
         @media screen and (max-width: 1400px) {
           font-size: 28px;
         }
+
+        @media screen and (max-width: 600px) {
+          font-size: 23px;
+        }
+
+        @media screen and (max-width: 450px) {
+          font-size: 20px;
+        }
       }
     }
 
@@ -80,10 +100,14 @@ header {
       right: 35px;
       border: none;
       background: none;
-      
+
       img {
         width: 40px;
         cursor: pointer;
+
+        @media screen and (max-width: 600px) {
+          width: 30px;
+        }
       }
 
       @media screen and (max-width: 1400px) {
@@ -100,4 +124,3 @@ header {
     }
   }
 }
-
