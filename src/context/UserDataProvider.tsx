@@ -5,6 +5,7 @@ import {
   USER_AVERAGE_SESSIONS,
   USER_PERFORMANCE,
 } from "../data/MockUp.tsx";
+import { useNavigate } from "react-router-dom";
 
 type UserMainDataType = {
   id: number;
@@ -78,49 +79,60 @@ const UserDataProvider = (props: UserDataProviderProps) => {
             const userMainData = USER_MAIN_DATA.find(
               (userDataId) => userDataId.id === id
             );
+
+            //! Probléme pour gestion id et redirection page 404 :
+            if (id !== 12 && id !== 18) {
+              // eslint-disable-next-line react-hooks/rules-of-hooks
+              const navigate = useNavigate();
+              navigate("/404");
+            }
+
             if (!userMainData) {
               throw new Error(
                 `User with ID ${id} not found in USER_MAIN_DATA.`
               );
             }
-            return userMainData as UserMainDataType[0] | UserMainDataType[1];
+
+            return userMainData;
           },
+
           getUserActivity: (userId) => {
             const userActivity = USER_ACTIVITY.find(
               (userDataId) => userDataId.userId === userId
             );
+
             if (!userActivity) {
               throw new Error(
                 `User with ID ${userId} not found in USER_ACTIVITY.`
               );
             }
-            return userActivity as UserActivityType[0] | UserActivityType[1];
+            return userActivity;
           },
+
           getUserAverageSessions: (userId) => {
             const userAverageSessions = USER_AVERAGE_SESSIONS.find(
               (userDataId) => userDataId.userId === userId
             );
+
             if (!userAverageSessions) {
               throw new Error(
                 `User with ID ${userId} not found in USER_AVERAGE_SESSIONS.`
               );
             }
-            return userAverageSessions as
-              | UserAverageSessionsType[0]
-              | UserAverageSessionsType[1];
+            return userAverageSessions;
           },
+
           getUserPerformance: (userId) => {
             const userPerformance = USER_PERFORMANCE.find(
               (userDataId) => userDataId.userId === userId
             );
+
             if (!userPerformance) {
               throw new Error(
                 `User with ID ${userId} not found in USER_PERFORMANCE.`
               );
             }
-            return userPerformance as
-              | UserPerformanceType[0]
-              | UserPerformanceType[1];
+            return userPerformance;
           },
         }}
       >
