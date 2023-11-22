@@ -1,7 +1,7 @@
 import "./Dashboard.scss";
 import { UserDataContext } from "../../context/UserDataProvider";
-import { useParams } from "react-router-dom";
-import { useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useContext, useEffect } from "react";
 import Header from "../../components/header/Header";
 import WeightChart from "../../components/weightchart/WeightChart";
 import KpiObjective from "../../components/kpiobjective/KpiObjective";
@@ -14,15 +14,16 @@ const Dashboard = () => {
   const idAsString: string | undefined = id;
   const idAsNumber: number | undefined = Number(idAsString);
 
-  // const navigate = useNavigate();
+  //! Probléme lorsque je change d'id de l'utilisateur en paramétre je veux que sa renvoit vers ma page 404 :
+  const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (idAsNumber !== 12 && idAsNumber !== 18) {
-  //     navigate("/404");
-  //   } else {
-  //     console.log("ok");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (idAsNumber !== 12 && idAsNumber !== 18) {
+      navigate("/404");
+    } else {
+      console.log("ok");
+    }
+  }, []);
 
   const {
     getUserMainData,
