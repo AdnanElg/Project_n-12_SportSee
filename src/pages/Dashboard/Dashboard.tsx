@@ -18,6 +18,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (idAsNumber !== 12 && idAsNumber !== 18) {
+      console.log(idAsNumber);
       navigate("/404");
     }
   }, []);
@@ -67,7 +68,10 @@ const Dashboard = () => {
       </main>
     );
   } catch (e) {
-    console.log(e);
+    console.log(
+      `Invalid ID parameter: ${idAsNumber}. Please provide a valid user ID.`,
+      e
+    );
   }
 };
 
