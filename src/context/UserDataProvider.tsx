@@ -1,11 +1,10 @@
-import { createContext, useEffect } from "react";
+import { createContext } from "react";
 import {
   USER_MAIN_DATA,
   USER_ACTIVITY,
   USER_AVERAGE_SESSIONS,
   USER_PERFORMANCE,
 } from "../data/MockUp.tsx";
-import { useNavigate } from "react-router-dom";
 
 type UserMainDataType = {
   id: number;
@@ -76,17 +75,6 @@ const UserDataProvider = (props: UserDataProviderProps) => {
       <UserDataContext.Provider
         value={{
           getUserMainData: (id) => {
-            // eslint-disable-next-line react-hooks/rules-of-hooks
-            const navigate = useNavigate();
-
-            // eslint-disable-next-line react-hooks/rules-of-hooks
-            useEffect(() => {
-              if (id !== 12 && id !== 18) {
-                console.log(id);
-                navigate("/404");
-              }
-            }, [id]);
-
             const userMainData = USER_MAIN_DATA.find(
               (userDataId) => userDataId.id === id
             );
