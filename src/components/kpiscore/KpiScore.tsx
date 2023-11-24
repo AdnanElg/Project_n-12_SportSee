@@ -17,7 +17,7 @@ const KpiScore = ({ dataScore }: { dataScore: number }) => {
       <PieChart width={230} height={250}>
         <Pie
           data={data}
-          cx={105}
+          cx={110}
           cy={140}
           innerRadius={85}
           outerRadius={100}

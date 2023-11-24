@@ -59,7 +59,7 @@ const WeightChart = ({ dataActivity }: { dataActivity: UserActivityType }) => {
           <li>Calories brûlées (kCal)</li>
         </ul>
       </div>
-      <ResponsiveContainer width="100%" aspect={3}>
+      <ResponsiveContainer width="100%" height="100%" aspect={3}>
         <BarChart data={dataActivity}>
           <CartesianGrid strokeDasharray="3" vertical={false} />
           <XAxis
@@ -69,8 +69,8 @@ const WeightChart = ({ dataActivity }: { dataActivity: UserActivityType }) => {
             tick={{ fontWeight: "bold", color: "#9B9EAC" }}
           />
           <YAxis
-            dataKey="kilogram"
-            domain={["dataMin-1", "dataMax+2"]}
+            // dataKey="kilogram"
+            // domain={["dataMin-2", "dataMax+2"]}
             tickMargin={10}
             orientation="right"
             tickLine={false}
