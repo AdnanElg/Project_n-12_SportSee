@@ -43,4 +43,18 @@
       }
     }
   }
+
+  &__tooltip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    background-color: red;
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 25px 10px;
+  }
 }

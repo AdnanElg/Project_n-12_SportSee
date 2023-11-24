@@ -7,15 +7,15 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-type KpiPerformanceType = {
+type DataPerformanceType = {
   value: number;
-  kind: number;
+  kind: string;
 }[];
 
 const KpiPerformance = ({
   dataPerformance,
 }: {
-  dataPerformance: KpiPerformanceType;
+  dataPerformance: DataPerformanceType;
 }) => {
   return (
     <div className="container__kpiperformance">

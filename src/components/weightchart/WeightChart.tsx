@@ -10,12 +10,46 @@ import {
 } from "recharts";
 
 type UserActivityType = {
-  day: string;
+  day: number;
   kilogram: number;
   calories: number;
 }[];
 
+type PayloadType = {
+  chartType: undefined;
+  color: string;
+  dataKey: string;
+  fill: string;
+  formatter: undefined;
+  name: string;
+  opacity: number;
+  payload: { day: number; sessionLength: number };
+  stroke: string;
+  strokeWidth: number;
+  type: undefined;
+  unit: undefined;
+  value: number;
+}[];
+
 const WeightChart = ({ dataActivity }: { dataActivity: UserActivityType }) => {
+  const CustomToolTip = ({
+    active,
+    payload,
+  }: {
+    active: boolean;
+    payload: PayloadType;
+  }) => {
+    if (active) {
+      return (
+        <div className="container__weightcart__tooltip">
+          <p>{`${payload[0].value}`}kg</p>
+          <p>{`${payload[1].value}`}kcal</p>
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <div className="container__weightcart">
       <div className="container__weightcart__legend">
@@ -30,26 +64,19 @@ const WeightChart = ({ dataActivity }: { dataActivity: UserActivityType }) => {
           <CartesianGrid strokeDasharray="3" vertical={false} />
           <XAxis
             dataKey="day"
+            tickMargin={10}
             tickLine={false}
             tick={{ fontWeight: "bold", color: "#9B9EAC" }}
           />
           <YAxis
+            dataKey="kilogram"
+            domain={["dataMin-1", "dataMax+2"]}
+            tickMargin={10}
             orientation="right"
             tickLine={false}
             tick={{ fontWeight: "bold", color: "#9B9EAC" }}
           />
-          <Tooltip
-            labelStyle={{ display: "none" }}
-            itemStyle={{
-              fontSize: "12px",
-              color: "#fff",
-              fontWeight: 600,
-            }}
-            contentStyle={{
-              background: "red",
-              border: "none",
-            }}
-          />
+          <Tooltip content={<CustomToolTip active={false} payload={[]} />} />
           <Bar
             dataKey="kilogram"
             fill="#282D30"

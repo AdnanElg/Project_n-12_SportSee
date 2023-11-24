@@ -1,14 +1,9 @@
 import { PieChart, Pie } from "recharts";
-import { useState } from "react";
 import "./KpiScore.scss";
 
-type DataType = {
-  todayScore: number;
-}[];
-
 const KpiScore = ({ dataScore }: { dataScore: number }) => {
-  const [score] = useState(dataScore * 100);
-  const [data] = useState<DataType>([{ todayScore: score }]);
+  const score = dataScore * 100;
+  const data = [{ name: "todayScore", value: score }];
 
   return (
     <div className="container__kpiscore">
@@ -27,9 +22,11 @@ const KpiScore = ({ dataScore }: { dataScore: number }) => {
           innerRadius={85}
           outerRadius={100}
           paddingAngle={150}
-          dataKey="todayScore"
+          dataKey="value"
           cornerRadius={10}
           fill="#FF0101"
+          startAngle={80}
+          endAngle={160}
         ></Pie>
       </PieChart>
     </div>

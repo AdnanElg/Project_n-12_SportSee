@@ -2,7 +2,7 @@ import "./KpiObjective.scss";
 import { LineChart, Line, Tooltip, ResponsiveContainer, XAxis } from "recharts";
 
 type DataUserAverageSessionsType = {
-  day: number;
+  day: string;
   sessionLength: number;
 }[];
 
