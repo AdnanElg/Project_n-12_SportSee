@@ -20,19 +20,18 @@ class UserPerformance {
 
   getFormattedData() {
     const kindTranslations: KindType = {
-      1: "cardio",
-      2: "énergie",
-      3: "endurance",
-      4: "force",
-      5: "vitesse",
-      6: "intensité",
+      1: "Cardio",
+      2: "Énergie",
+      3: "Endurance",
+      4: "Force",
+      5: "Vitesse",
+      6: "Intensité",
     };
 
     const formattedData = this.data.map((item) => ({
       value: item.value,
       kind: kindTranslations[item.kind],
     }));
-
     return formattedData;
   }
 }

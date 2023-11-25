@@ -69,22 +69,33 @@ const WeightChart = ({ dataActivity }: { dataActivity: UserActivityType }) => {
             tick={{ fontWeight: "bold", color: "#9B9EAC" }}
           />
           <YAxis
-            // dataKey="kilogram"
-            // domain={["dataMin-2", "dataMax+2"]}
+            domain={["dataMin-3", "dataMax+3"]}
+            tickCount={4}
+            dataKey="kilogram"
+            yAxisId="kilogram"
             tickMargin={10}
             orientation="right"
             tickLine={false}
             tick={{ fontWeight: "bold", color: "#9B9EAC" }}
           />
+          <YAxis
+            hide
+            dataKey="calories"
+            yAxisId="calories"
+            orientation="right"
+            domain={[0, "dataMax+5"]}
+          />
           <Tooltip content={<CustomToolTip active={false} payload={[]} />} />
           <Bar
             dataKey="kilogram"
+            yAxisId="kilogram"
             fill="#282D30"
             radius={[20, 20, 0, 0]}
             barSize={10}
           />
           <Bar
             dataKey="calories"
+            yAxisId="calories"
             fill="#E60000"
             radius={[20, 20, 0, 0]}
             barSize={10}

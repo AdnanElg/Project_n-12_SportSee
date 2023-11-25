@@ -6,6 +6,10 @@
   position: relative;
   transition: box-shadow 0.3s ease;
 
+  @media screen and (max-width: 1720px) {
+    width: 27%;
+  }
+
   @media screen and (max-width: 1050px) {
     width: 100%;
   }
@@ -24,6 +28,7 @@
   &__tooltip {
     background-color: white;
     color: black;
-    padding: 0.1em 0.8em;
+    padding: 13px 10px;
+    border-radius: 5px;
   }
 }
