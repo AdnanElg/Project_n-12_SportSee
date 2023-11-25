@@ -36,7 +36,6 @@ const Dashboard = () => {
     const userPerformanceData = getUserPerformance(idAsNumber);
     const userAverageSessions = getUserAverageSessions(idAsNumber);
     const userActivity = getUserActivity(idAsNumber);
-
     try {
       if (userPerformanceData && userAverageSessions && userActivity) {
         const formattedUserPerformance = new UserPerformance(
