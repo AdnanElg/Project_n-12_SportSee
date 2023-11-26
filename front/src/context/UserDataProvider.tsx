@@ -52,16 +52,10 @@ type UserPerformanceType = {
 }[];
 
 type UserDataType = {
-  getUserMainData: (id: number) => UserMainDataType[0] | UserMainDataType[1];
-  getUserActivity: (
-    userId: number
-  ) => UserActivityType[0] | UserActivityType[1];
-  getUserAverageSessions: (
-    userId: number
-  ) => UserAverageSessionsType[0] | UserAverageSessionsType[1];
-  getUserPerformance: (
-    userId: number
-  ) => UserPerformanceType[0] | UserPerformanceType[1];
+  getUserMainData: (id: number) => Promise<UserMainDataType>;
+  getUserActivity: (userId: number) => Promise<UserActivityType>;
+  getUserAverageSessions: (userId: number) => Promise<UserAverageSessionsType>;
+  getUserPerformance: (userId: number) => Promise<UserPerformanceType>;
 };
 
 type UserDataProviderProps = {
@@ -70,15 +64,15 @@ type UserDataProviderProps = {
 
 export const UserDataContext = createContext<UserDataType>({} as UserDataType);
 
-const useMock = import.meta.env.VITE_USE_MOCK === "true";
+const useMock: boolean = import.meta.env.VITE_USE_MOCK;
 
 const UserDataProvider = (props: UserDataProviderProps) => {
   try {
     return (
       <UserDataContext.Provider
         value={{
-          getUserMainData: async (id: number) => {
-            if (useMock) {
+          getUserMainData: async (id) => {
+            if (useMock === true) {
               const userMainData = USER_MAIN_DATA.find(
                 (userDataId) => userDataId.id === id
               );
@@ -87,21 +81,21 @@ const UserDataProvider = (props: UserDataProviderProps) => {
                   `User with ID ${id} not found in USER_MAIN_DATA.`
                 );
               }
-              return Promise.resolve(userMainData);
+              return userMainData;
             } else {
               try {
                 const response = await axios.get(
                   `http://localhost:3000/user/${id}`
                 );
-                return response.data;
+                return response.data.data;
               } catch (error) {
                 throw new Error(`Error fetching user data: ${error}`);
               }
             }
           },
 
-          getUserActivity: async (userId: number) => {
-            if (useMock) {
+          getUserActivity: async (userId) => {
+            if (useMock === true) {
               const userActivity = USER_ACTIVITY.find(
                 (userDataId) => userDataId.userId === userId
               );
@@ -111,21 +105,21 @@ const UserDataProvider = (props: UserDataProviderProps) => {
                   `User with ID ${userId} not found in USER_ACTIVITY.`
                 );
               }
-              return Promise.resolve(userActivity);
+              return userActivity;
             } else {
               try {
                 const response = await axios.get(
                   `http://localhost:3000/user/${userId}/activity`
                 );
-                return response.data;
+                return response.data.data;
               } catch (error) {
                 throw new Error(`Error fetching user data: ${error}`);
               }
             }
           },
 
-          getUserAverageSessions: async (userId: number) => {
-            if (useMock) {
+          getUserAverageSessions: async (userId) => {
+            if (useMock === true) {
               const userAverageSessions = USER_AVERAGE_SESSIONS.find(
                 (userDataId) => userDataId.userId === userId
               );
@@ -135,21 +129,21 @@ const UserDataProvider = (props: UserDataProviderProps) => {
                   `User with ID ${userId} not found in USER_AVERAGE_SESSIONS.`
                 );
               }
-              return Promise.resolve(userAverageSessions);
+              return userAverageSessions;
             } else {
               try {
                 const responce = await axios.get(
                   `http://localhost:3000/user/${userId}/average-sessions`
                 );
-                return responce.data;
+                return responce.data.data;
               } catch (error) {
                 throw new Error(`Error fetching user data: ${error}`);
               }
             }
           },
 
-          getUserPerformance: async (userId: number) => {
-            if (useMock) {
+          getUserPerformance: async (userId) => {
+            if (useMock === true) {
               const userPerformance = USER_PERFORMANCE.find(
                 (userDataId) => userDataId.userId === userId
               );
@@ -159,13 +153,13 @@ const UserDataProvider = (props: UserDataProviderProps) => {
                   `User with ID ${userId} not found in USER_PERFORMANCE.`
                 );
               }
-              return Promise.resolve(userPerformance);
+              return userPerformance;
             } else {
               try {
                 const response = await axios.get(
                   `http://localhost:3000/user/${userId}/performance`
                 );
-                return response.data;
+                return response.data.data;
               } catch (error) {
                 throw new Error(`Error fetching user data: ${error}`);
               }

@@ -5,6 +5,7 @@ type FirstNameType = {
 };
 
 const Header = ({ firstName }: FirstNameType) => {
+  console.log(firstName);
   return (
     <div className="container__firstname">
       <h1>
