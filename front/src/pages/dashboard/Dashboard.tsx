@@ -1,7 +1,7 @@
 import "./Dashboard.scss";
 import { UserDataContext } from "../../context/UserDataProvider";
 import { useParams, useNavigate } from "react-router-dom";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import Header from "../../components/header/Header";
 import WeightChart from "../../components/weightchart/WeightChart";
 import KpiObjective from "../../components/kpiobjective/KpiObjective";
@@ -24,6 +24,8 @@ const Dashboard = () => {
       navigate("/404");
     }
   }, []);
+
+  const [dashboardData, setDashboardData] = useState<null | JSX.Element>(null);
 
   const {
     getUserMainData,
@@ -58,7 +60,7 @@ const Dashboard = () => {
               userActivity.sessions
             );
 
-            return (
+            const dataToRender = (
               <main className="container__dashboard">
                 <section className="container__dashboard__section">
                   <>
@@ -86,6 +88,7 @@ const Dashboard = () => {
                 </section>
               </main>
             );
+            setDashboardData(dataToRender);
           }
         } catch (error) {
           console.log(
@@ -101,6 +104,8 @@ const Dashboard = () => {
     };
     fetchData();
   }, []);
+
+  return dashboardData;
 };
 
 export default Dashboard;

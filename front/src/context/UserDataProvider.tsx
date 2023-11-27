@@ -52,10 +52,16 @@ type UserPerformanceType = {
 }[];
 
 type UserDataType = {
-  getUserMainData: (id: number) => Promise<UserMainDataType>;
-  getUserActivity: (userId: number) => Promise<UserActivityType>;
-  getUserAverageSessions: (userId: number) => Promise<UserAverageSessionsType>;
-  getUserPerformance: (userId: number) => Promise<UserPerformanceType>;
+  getUserMainData: (id: number) => UserMainDataType | Promise<UserMainDataType>;
+  getUserActivity: (
+    userId: number
+  ) => UserActivityType | Promise<UserActivityType>;
+  getUserAverageSessions: (
+    userId: number
+  ) => UserAverageSessionsType | Promise<UserAverageSessionsType>;
+  getUserPerformance: (
+    userId: number
+  ) => UserPerformanceType | Promise<UserAverageSessionsType>;
 };
 
 type UserDataProviderProps = {
@@ -64,7 +70,7 @@ type UserDataProviderProps = {
 
 export const UserDataContext = createContext<UserDataType>({} as UserDataType);
 
-const useMock: boolean = import.meta.env.VITE_USE_MOCK;
+const useMock: string = import.meta.env.VITE_USE_MOCK;
 
 const UserDataProvider = (props: UserDataProviderProps) => {
   try {
@@ -72,7 +78,7 @@ const UserDataProvider = (props: UserDataProviderProps) => {
       <UserDataContext.Provider
         value={{
           getUserMainData: async (id) => {
-            if (useMock === true) {
+            if (useMock === "true") {
               const userMainData = USER_MAIN_DATA.find(
                 (userDataId) => userDataId.id === id
               );
@@ -95,11 +101,10 @@ const UserDataProvider = (props: UserDataProviderProps) => {
           },
 
           getUserActivity: async (userId) => {
-            if (useMock === true) {
+            if (useMock === "true") {
               const userActivity = USER_ACTIVITY.find(
                 (userDataId) => userDataId.userId === userId
               );
-
               if (!userActivity) {
                 throw new Error(
                   `User with ID ${userId} not found in USER_ACTIVITY.`
@@ -119,11 +124,10 @@ const UserDataProvider = (props: UserDataProviderProps) => {
           },
 
           getUserAverageSessions: async (userId) => {
-            if (useMock === true) {
+            if (useMock === "true") {
               const userAverageSessions = USER_AVERAGE_SESSIONS.find(
                 (userDataId) => userDataId.userId === userId
               );
-
               if (!userAverageSessions) {
                 throw new Error(
                   `User with ID ${userId} not found in USER_AVERAGE_SESSIONS.`
@@ -132,10 +136,10 @@ const UserDataProvider = (props: UserDataProviderProps) => {
               return userAverageSessions;
             } else {
               try {
-                const responce = await axios.get(
+                const response = await axios.get(
                   `http://localhost:3000/user/${userId}/average-sessions`
                 );
-                return responce.data.data;
+                return response.data.data;
               } catch (error) {
                 throw new Error(`Error fetching user data: ${error}`);
               }
@@ -143,11 +147,10 @@ const UserDataProvider = (props: UserDataProviderProps) => {
           },
 
           getUserPerformance: async (userId) => {
-            if (useMock === true) {
+            if (useMock === "true") {
               const userPerformance = USER_PERFORMANCE.find(
                 (userDataId) => userDataId.userId === userId
               );
-
               if (!userPerformance) {
                 throw new Error(
                   `User with ID ${userId} not found in USER_PERFORMANCE.`
