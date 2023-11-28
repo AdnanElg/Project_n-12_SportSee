@@ -90,7 +90,6 @@ const UserDataProvider = (props: UserDataProviderProps) => {
                   `User with ID ${id} not found in USER_MAIN_DATA.`
                 );
               }
-              console.log(userMainData);
               return userMainData;
             } else {
               try {
@@ -102,7 +101,6 @@ const UserDataProvider = (props: UserDataProviderProps) => {
                 const response = await axios.get(
                   `http://localhost:3000/user/${id}`
                 );
-                console.log(response.data.data);
                 return response.data.data;
               } catch (error) {
                 throw new Error(`Error fetching user data: ${error}`);
@@ -120,7 +118,6 @@ const UserDataProvider = (props: UserDataProviderProps) => {
                   `User with ID ${userId} not found in USER_ACTIVITY.`
                 );
               }
-              console.log(userActivity);
               return userActivity;
             } else {
               try {
@@ -132,7 +129,6 @@ const UserDataProvider = (props: UserDataProviderProps) => {
                 const response = await axios.get(
                   `http://localhost:3000/user/${userId}/activity`
                 );
-                console.log(response.data.data);
                 return response.data.data;
               } catch (error) {
                 throw new Error(`Error fetching user data: ${error}`);
@@ -150,7 +146,6 @@ const UserDataProvider = (props: UserDataProviderProps) => {
                   `User with ID ${userId} not found in USER_AVERAGE_SESSIONS.`
                 );
               }
-              console.log(userAverageSessions);
               return userAverageSessions;
             } else {
               try {
@@ -162,7 +157,6 @@ const UserDataProvider = (props: UserDataProviderProps) => {
                 const response = await axios.get(
                   `http://localhost:3000/user/${userId}/average-sessions`
                 );
-                console.log(response.data.data);
                 return response.data.data;
               } catch (error) {
                 throw new Error(`Error fetching user data: ${error}`);
@@ -180,7 +174,6 @@ const UserDataProvider = (props: UserDataProviderProps) => {
                   `User with ID ${userId} not found in USER_PERFORMANCE.`
                 );
               }
-              console.log(userPerformance);
               return userPerformance;
             } else {
               try {
@@ -192,7 +185,6 @@ const UserDataProvider = (props: UserDataProviderProps) => {
                 const response = await axios.get(
                   `http://localhost:3000/user/${userId}/performance`
                 );
-                console.log(response.data.data);
                 return response.data.data;
               } catch (error) {
                 throw new Error(`Error fetching user data: ${error}`);
