@@ -42,63 +42,56 @@ const Dashboard = () => {
         const userAverageSessions = await getUserAverageSessions(idAsNumber);
         const userActivity = await getUserActivity(idAsNumber);
 
-        try {
-          if (userPerformanceData && userAverageSessions && userActivity) {
-            const formattedUserPerformance = new UserPerformance(
-              userPerformanceData.userId,
-              userPerformanceData.kind,
-              userPerformanceData.data
-            );
+        if (userPerformanceData && userAverageSessions && userActivity) {
+          const formattedUserPerformance = new UserPerformance(
+            userPerformanceData.userId,
+            userPerformanceData.kind,
+            userPerformanceData.data
+          );
 
-            const formattedUserAverageSessions = new UserAverageSessions(
-              userAverageSessions.userId,
-              userAverageSessions.sessions
-            );
+          const formattedUserAverageSessions = new UserAverageSessions(
+            userAverageSessions.userId,
+            userAverageSessions.sessions
+          );
 
-            const formattedUserActivity = new UserActivity(
-              userActivity.userId,
-              userActivity.sessions
-            );
+          const formattedUserActivity = new UserActivity(
+            userActivity.userId,
+            userActivity.sessions
+          );
 
-            const dataToRender = (
-              <main className="container__dashboard">
-                <section className="container__dashboard__section">
-                  <>
-                    <Header firstName={userMainData.userInfos.firstName} />
-                    <div className="container__dashboard__section__data">
-                      <div className="container__dashboard__section__data__chart">
-                        <WeightChart
-                          dataActivity={formattedUserActivity.getFormattedData()}
+          const dataToRender = (
+            <main className="container__dashboard">
+              <section className="container__dashboard__section">
+                <>
+                  <Header firstName={userMainData.userInfos.firstName} />
+                  <div className="container__dashboard__section__data">
+                    <div className="container__dashboard__section__data__chart">
+                      <WeightChart
+                        dataActivity={formattedUserActivity.getFormattedData()}
+                      />
+                      <div className="container__dashboard__section__data__chart__kpi">
+                        <KpiObjective
+                          dataUserAverageSessions={formattedUserAverageSessions.getFormattedData()}
                         />
-                        <div className="container__dashboard__section__data__chart__kpi">
-                          <KpiObjective
-                            dataUserAverageSessions={formattedUserAverageSessions.getFormattedData()}
-                          />
-                          <KpiPerformance
-                            dataPerformance={formattedUserPerformance.getFormattedData()}
-                          />
-                          <KpiScore dataScore={userMainData.todayScore} />
-                        </div>
-                      </div>
-                      <div className="container__dashboard__section__data__health">
-                        <HealthData dataUserMain={userMainData.keyData} />
+                        <KpiPerformance
+                          dataPerformance={formattedUserPerformance.getFormattedData()}
+                        />
+                        <KpiScore dataScore={userMainData.todayScore} />
                       </div>
                     </div>
-                  </>
-                </section>
-              </main>
-            );
-            setDashboardData(dataToRender);
-          }
-        } catch (error) {
-          console.log(
-            "An error occurred while retrieving data from the server " + error
+                    <div className="container__dashboard__section__data__health">
+                      <HealthData dataUserMain={userMainData.keyData} />
+                    </div>
+                  </div>
+                </>
+              </section>
+            </main>
           );
+          setDashboardData(dataToRender);
         }
       } catch (error) {
-        console.log(
-          `Invalid ID parameter: ${idAsNumber}. Please provide a valid user ID. ` +
-            error
+        throw new Error(
+          "An error occurred while retrieving data from the server " + error
         );
       }
     };

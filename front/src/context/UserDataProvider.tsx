@@ -90,6 +90,11 @@ const UserDataProvider = (props: UserDataProviderProps) => {
               return userMainData;
             } else {
               try {
+                if (id !== 12 && id !== 18) {
+                  throw new Error(
+                    `User with ID ${id} not found in USER_MAIN_DATA.`
+                  );
+                }
                 const response = await axios.get(
                   `http://localhost:3000/user/${id}`
                 );
@@ -113,6 +118,11 @@ const UserDataProvider = (props: UserDataProviderProps) => {
               return userActivity;
             } else {
               try {
+                if (userId !== 12 && userId !== 18) {
+                  throw new Error(
+                    `User with ID ${userId} not found in USER_ACTIVITY.`
+                  );
+                }
                 const response = await axios.get(
                   `http://localhost:3000/user/${userId}/activity`
                 );
@@ -136,6 +146,11 @@ const UserDataProvider = (props: UserDataProviderProps) => {
               return userAverageSessions;
             } else {
               try {
+                if (userId !== 12 && userId !== 18) {
+                  throw new Error(
+                    `User with ID ${userId} not found in USER_AVERAGE_SESSIONS.`
+                  );
+                }
                 const response = await axios.get(
                   `http://localhost:3000/user/${userId}/average-sessions`
                 );
@@ -159,6 +174,11 @@ const UserDataProvider = (props: UserDataProviderProps) => {
               return userPerformance;
             } else {
               try {
+                if (userId !== 12 && userId !== 18) {
+                  throw new Error(
+                    `User with ID ${userId} not found in USER_PERFORMANCE.`
+                  );
+                }
                 const response = await axios.get(
                   `http://localhost:3000/user/${userId}/performance`
                 );
