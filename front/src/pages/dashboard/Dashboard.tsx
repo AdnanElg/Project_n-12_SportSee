@@ -48,8 +48,6 @@ const Dashboard = () => {
             userPerformanceData.kind,
             userPerformanceData.data
           );
-          // console.log(typeof userPerformanceData.kind); return => object
-          // console.log(typeof userPerformanceData.data); return => object
 
           const formattedUserAverageSessions = new UserAverageSessions(
             userAverageSessions.userId,
