@@ -6,8 +6,16 @@
 
 # Installation :
 
-- cd back et front (deux terminales séparée);
-- git clone : https://github.com/AdnanElg/Project_n-12_SportSee.git
-- npm install (repertoire back et front);
-- npm run dev (repertoire back et front pour lancer le projet);
+# backend :
 
+- cd back
+- git clone : https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git
+- npm install
+- npm run dev
+
+# frontend :
+
+- cd front
+- git clone : https://github.com/AdnanElg/Project_n-12_SportSee.git
+- npm install
+- npm run dev
