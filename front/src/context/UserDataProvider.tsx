@@ -21,7 +21,7 @@ type UserMainDataType = {
     carbohydrateCount: number;
     lipidCount: number;
   };
-}[];
+};
 
 type UserActivityType = {
   userId: number;
@@ -30,7 +30,7 @@ type UserActivityType = {
     kilogram: number;
     calories: number;
   }[];
-}[];
+};
 
 type UserAverageSessionsType = {
   userId: number;
@@ -38,7 +38,7 @@ type UserAverageSessionsType = {
     day: number;
     sessionLength: number;
   }[];
-}[];
+};
 
 type UserPerformanceType = {
   userId: number;
@@ -49,7 +49,7 @@ type UserPerformanceType = {
     value: number;
     kind: number;
   }[];
-}[];
+};
 
 type UserDataType = {
   getUserMainData: (id: number) => UserMainDataType | Promise<UserMainDataType>;
