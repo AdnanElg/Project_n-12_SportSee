@@ -1,6 +1,8 @@
+@use "../../styles/utils/_variables";
+
 // Style WeightChart :
 .container__weightcart {
-  background-color: #fbfbfb;
+  background-color: variables.$senary;
   width: 100%;
   padding: 30px;
   border-radius: 10px;
@@ -14,7 +16,7 @@
     h3 {
       font-size: 15px;
       font-weight: 600;
-      color: #20253a;
+      color: variables.$septenary;
       padding-top: 5px;
     }
 
@@ -27,19 +29,19 @@
 
       li {
         list-style: disc;
-        color: #74798c;
+        color: variables.$tertiary;
         font-weight: 500;
         font-size: 15px;
       }
 
       li:nth-child(1)::marker {
         font-size: 20px;
-        color: #282d30;
+        color: variables.$quaternary;
       }
 
       li:nth-child(2)::marker {
         font-size: 20px;
-        color: #e60000;
+        color: variables.$primary;
       }
     }
   }
@@ -50,9 +52,9 @@
     align-items: center;
     flex-direction: column;
     gap: 20px;
-    background-color: red;
+    background-color: variables.$primary;
     border: none;
-    color: #fff;
+    color: variables.$quinary;
     font-size: 12px;
     font-weight: 600;
     padding: 25px 10px;

@@ -1,8 +1,10 @@
+@use "../../styles/utils/breakpoints";
+
 // Style Home :
 .container__home {
   margin: 155px 90px 88px 210px;
 
-  @media screen and (max-width: 1400px) {
+  @include breakpoints.custom-media-query(1400) {
     margin: 150px 50px 50px 50px;
   }
 }

@@ -1,13 +1,16 @@
+@use "../../styles/utils/_variables";
+@use "../../styles/utils/breakpoints";
+
 // Style Users :
 .container__users {
   h1 {
     font-size: 37px;
     font-weight: 600;
-    color: #000;
+    color: variables.$secondary;
     font-style: italic;
     text-align: justify;
 
-    @media screen and (max-width: 700px) {
+    @include breakpoints.custom-media-query(700) {
       text-align: center;
       font-size: 30px;
     }
@@ -20,7 +23,7 @@
     flex-direction: row;
     margin-top: 130px;
 
-    @media screen and (max-width: 700px) {
+    @include breakpoints.custom-media-query(700) {
       flex-direction: column;
       gap: 120px;
     }
@@ -46,7 +49,7 @@
       }
 
       p {
-        color: #000;
+        color: variables.$secondary;
         font-weight: 600;
         font-size: 20px;
         text-align: center;
@@ -72,7 +75,7 @@
       }
 
       p {
-        color: #000;
+        color: variables.$secondary;
         font-weight: 600;
         font-size: 20px;
         text-align: center;

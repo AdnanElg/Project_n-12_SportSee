@@ -1,3 +1,6 @@
+@use "../../styles/utils/_variables";
+@use "../../styles/utils/breakpoints";
+
 // Style Maintenance :
 .container__maintenance {
   display: flex;
@@ -9,7 +12,7 @@
   img {
     width: 50%;
 
-    @media screen and (max-width: 800px) {
+    @include breakpoints.custom-media-query(800) {
       width: 35%;
     }
   }
@@ -17,21 +20,21 @@
   p {
     font-size: 50px;
     font-weight: 500;
-    color: #000;
+    color: variables.$secondary;
     width: max-content;
 
-    @media screen and (max-width: 800px) {
+    @include breakpoints.custom-media-query(800) {
       font-size: 30px;
     }
   }
 
   span {
-    color: #000;
+    color: variables.$secondary;
     font-size: 20px;
     font-weight: 500;
     text-decoration: underline;
 
-    @media screen and (max-width: 800px) {
+    @include breakpoints.custom-media-query(800) {
       font-size: 18px;
     }
   }

@@ -1,3 +1,5 @@
+@use "../../styles/utils/breakpoints";
+
 // Style NotFound :
 .container__notfound {
   position: fixed;
@@ -8,7 +10,7 @@
   & section {
     margin: 170px 90px 88px 210px;
 
-    @media screen and (max-width: 1400px) {
+    @include breakpoints.custom-media-query(1400) {
       margin: 0px 0px 0px 0px;
     }
   }

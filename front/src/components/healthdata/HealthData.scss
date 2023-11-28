@@ -1,3 +1,6 @@
+@use "../../styles/utils/_variables";
+@use "../../styles/utils/breakpoints";
+
 // Style Healthdata :
 .container__healthdata {
   display: flex;
@@ -5,7 +8,7 @@
   align-items: center;
   gap: 66px;
 
-  @media screen and (max-width: 1400px) {
+  @include breakpoints.custom-media-query(1400) {
     width: 100%;
   }
 
@@ -14,12 +17,12 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
-    background-color: #fbfbfb;
+    background-color: variables.$senary;
     width: 230px;
     height: 120px;
     border-radius: 10px;
 
-    @media screen and (max-width: 1400px) {
+    @include breakpoints.custom-media-query(1400) {
       width: 100%;
       justify-content: flex-start;
       padding-left: 30px;
@@ -36,13 +39,13 @@
       gap: 5px;
 
       span {
-        color: #282d30;
+        color: variables.$quaternary;
         font-weight: 600;
         font-size: 18px;
       }
 
       p {
-        color: #74798c;
+        color: variables.$tertiary;
         font-weight: 600;
         font-size: 15px;
       }

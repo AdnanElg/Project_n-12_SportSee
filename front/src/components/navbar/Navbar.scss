@@ -1,3 +1,6 @@
+@use "../../styles/utils/_variables";
+@use "../../styles/utils/breakpoints";
+
 // Style Navbar :
 header {
   z-index: 3;
@@ -12,9 +15,9 @@ header {
     justify-content: center;
     align-items: center;
     background-color: #020203;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 6px variables.$nonary;
 
-    @media screen and (max-width: 1400px) {
+    @include breakpoints.custom-media-query(1400) {
       height: 95px;
       justify-content: space-between;
     }
@@ -24,7 +27,7 @@ header {
       height: 60px;
       margin-left: 28px;
 
-      @media screen and (max-width: 600px) {
+      @include breakpoints.custom-media-query(600) {
         width: 140px;
         height: 50px;
       }
@@ -40,7 +43,7 @@ header {
       margin-left: 50px;
       position: relative;
 
-      @media screen and (max-width: 1400px) {
+      @include breakpoints.custom-media-query(1400) {
         display: none;
         flex-direction: column;
         justify-content: flex-start;
@@ -55,14 +58,14 @@ header {
         gap: 35px;
         line-height: 50px;
         padding: 20px;
-        background-color: #000;
+        background-color: variables.$secondary;
       }
 
-      @media screen and (max-width: 600px) {
+      @include breakpoints.custom-media-query(600) {
         width: 60%;
       }
 
-      @media screen and (max-width: 450px) {
+      @include breakpoints.custom-media-query(450) {
         width: 80%;
       }
 
@@ -70,26 +73,26 @@ header {
         text-decoration: none;
 
         &.active {
-          border-bottom: solid 2px #ffff;
+          border-bottom: solid 2px variables.$quinary;
         }
       }
 
       a li {
-        color: #ffffff;
+        color: variables.$quinary;
         font-size: 24px;
         font-weight: 500;
         cursor: pointer;
 
-        @media screen and (max-width: 1400px) {
+        @include breakpoints.custom-media-query(1400) {
           font-size: 28px;
         }
 
-        @media screen and (max-width: 600px) {
-          font-size: 23px;
+        @include breakpoints.custom-media-query(600) {
+          font-size: 23;
         }
 
-        @media screen and (max-width: 450px) {
-          font-size: 20px;
+        @include breakpoints.custom-media-query(450) {
+          font-size: 20;
         }
       }
     }
@@ -105,12 +108,12 @@ header {
         width: 40px;
         cursor: pointer;
 
-        @media screen and (max-width: 600px) {
-          width: 30px;
+        @include breakpoints.custom-media-query(600) {
+          font-size: 30;
         }
       }
 
-      @media screen and (max-width: 1400px) {
+      @include breakpoints.custom-media-query(1400) {
         display: block;
       }
     }

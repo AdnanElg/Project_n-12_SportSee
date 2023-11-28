@@ -1,17 +1,20 @@
+@use "../../styles/utils/_variables";
+@use "../../styles/utils/breakpoints";
+
 // Style KpiScore :
 .container__kpiscore {
   display: flex;
   justify-content: center;
-  background-color: #fbfbfb;
+  background-color: variables.$senary;
   border-radius: 10px;
   width: 30%;
   position: relative;
 
-  @media screen and (max-width: 1720px) {
+  @include breakpoints.custom-media-query(1720) {
     width: 27%;
   }
 
-  @media screen and (max-width: 1050px) {
+  @include breakpoints.custom-media-query(1050) {
     width: 100%;
   }
 
@@ -21,7 +24,7 @@
     left: 15px;
     font-size: 16px;
     font-weight: 600;
-    color: #20253a;
+    color: variables.$septenary;
   }
 
   &__score {
@@ -31,14 +34,14 @@
     left: 50%;
     transform: translate(-55%, -35%);
     font-weight: 600;
-    color: #282d30;
+    color: variables.$octonary;
     font-size: 28px;
     line-height: 25px;
     z-index: 3;
 
     span {
       font-size: 16px;
-      color: #74798c;
+      color: variables.$tertiary;
       line-height: 15px;
     }
   }

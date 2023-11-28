@@ -1,3 +1,5 @@
+@use "../../styles/utils/breakpoints";
+
 // Style Dashboard :
 .container__dashboard {
   display: block;
@@ -5,11 +7,11 @@
   &__section {
     margin: 140px 90px 88px 170px;
 
-    @media screen and (max-width: 1400px) {
+    @include breakpoints.custom-media-query(1400) {
       margin: 150px 50px 50px 50px;
     }
 
-    @media screen and (max-width: 530px) {
+    @include breakpoints.custom-media-query(530) {
       margin: 130px 15px 50px 15px;
     }
 
@@ -19,7 +21,7 @@
       align-items: flex-start;
       gap: 35px;
 
-      @media screen and (max-width: 1400px) {
+      @include breakpoints.custom-media-query(1400) {
         flex-direction: column-reverse;
       }
 
@@ -30,7 +32,7 @@
         gap: 35px;
         width: 80%;
 
-        @media screen and (max-width: 1400px) {
+        @include breakpoints.custom-media-query(1400) {
           width: 100%;
         }
 
@@ -41,7 +43,7 @@
           gap: 35px;
           width: 100%;
 
-          @media screen and (max-width: 1050px) {
+          @include breakpoints.custom-media-query(1050) {
             flex-direction: column;
           }
         }
@@ -51,7 +53,7 @@
         flex-direction: column;
         align-items: flex-end;
 
-        @media screen and (max-width: 1400px) {
+        @include breakpoints.custom-media-query(1400) {
           width: 100%;
         }
       }

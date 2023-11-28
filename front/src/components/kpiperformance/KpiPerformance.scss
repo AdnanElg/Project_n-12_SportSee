@@ -1,18 +1,21 @@
+@use "../../styles/utils/_variables";
+@use "../../styles/utils/breakpoints";
+
 // Style KpiPerformance :
 .container__kpiperformance {
-  background-color: #282d30;
+  background-color: variables.$quaternary;
   border-radius: 10px;
   width: 40%;
 
-  @media screen and (max-width: 1570px) {
+  @include breakpoints.custom-media-query(1570) {
     width: 38%;
   }
 
-  @media screen and (max-width: 1400px) {
+  @include breakpoints.custom-media-query(1400) {
     width: 40%;
   }
 
-  @media screen and (max-width: 1050px) {
+  @include breakpoints.custom-media-query(1050) {
     width: 100%;
   }
 }

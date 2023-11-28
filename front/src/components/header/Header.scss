@@ -1,3 +1,6 @@
+@use "../../styles/utils/_variables";
+@use "../../styles/utils/breakpoints";
+
 // Style Header :
 .container__firstname {
   margin-bottom: 70px;
@@ -6,15 +9,15 @@
   h1 {
     font-size: 48px;
     font-weight: 600;
-    color: #000;
+    color: variables.$secondary;
 
-    @media screen and (max-width: 320px) {
+    @include breakpoints.custom-media-query(320) {
       line-height: 50px;
       font-size: 40px;
     }
 
     span {
-      color: #ff0101;
+      color: variables.$primary;
     }
   }
 

@@ -1,3 +1,6 @@
+@use "../../styles/utils/_variables";
+@use "../../styles/utils/breakpoints";
+
 // Style SideBar :
 .sidebar {
   display: flex;
@@ -7,12 +10,12 @@
   position: fixed;
   left: 0;
   top: 0;
-  background-color: #020203;
+  background-color: variables.$octonary;
   width: 117px;
   height: 100%;
   padding-top: 100px;
 
-  @media screen and (max-width: 1400px) {
+  @include breakpoints.custom-media-query(1400) {
     display: none;
   }
 
@@ -29,7 +32,7 @@
       justify-content: center;
       width: 60px;
       height: 60px;
-      background-color: #ffffff;
+      background-color: variables.$quinary;
       border-radius: 5px;
       cursor: pointer;
 
@@ -41,7 +44,7 @@
   }
 
   p {
-    color: #ffffff;
+    color: variables.$quinary;
     font-weight: 500;
     font-size: 12px;
     transform: rotate(270deg);
