@@ -1,3 +1,4 @@
+// Definition des type :
 type KindType = {
   [key: number]: string;
 };
@@ -7,6 +8,7 @@ type DataType = {
   kind: number;
 }[];
 
+// Definition  du formatter UserPerformance :
 class UserPerformance {
   data: DataType;
   kind: KindType;

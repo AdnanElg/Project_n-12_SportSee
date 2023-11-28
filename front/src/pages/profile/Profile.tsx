@@ -1,6 +1,8 @@
+// Importation des module :
 import Maintenance from "../../components/maintenance/Maintenance";
 import "./Profile.scss";
 
+// Definition de la page Profile :
 const Profile = () => {
   return (
     <main className="container__profile">

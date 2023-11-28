@@ -1,3 +1,4 @@
+// Importation des modules :
 import "./Dashboard.scss";
 import { UserDataContext } from "../../context/UserDataProvider";
 import { useParams, useNavigate } from "react-router-dom";
@@ -12,6 +13,7 @@ import UserPerformance from "../../formatters/UserPerformance";
 import UserAverageSessions from "../../formatters/UserAverageSessions";
 import UserActivity from "../../formatters/UserActivity";
 
+// Definition de la page Dashboard :
 const Dashboard = () => {
   const { id } = useParams();
   const idAsString: string | undefined = id;

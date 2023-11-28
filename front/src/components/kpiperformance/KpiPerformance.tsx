@@ -1,3 +1,4 @@
+// Importation des module :
 import "./KpiPerformance.scss";
 import {
   Radar,
@@ -7,11 +8,13 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+// Definition du type :
 type DataPerformanceType = {
   value: number;
   kind: string;
 }[];
 
+// Définition du composant KpiPerformance :
 const KpiPerformance = ({
   dataPerformance,
 }: {

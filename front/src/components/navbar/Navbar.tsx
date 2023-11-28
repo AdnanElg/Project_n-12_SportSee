@@ -1,3 +1,4 @@
+// Importation des module :
 import { useState, useEffect } from "react";
 import Logo from "../../assets/svg/logo.svg";
 import hamburger from "../../assets/svg/hamburger.svg";
@@ -5,6 +6,7 @@ import close from "../../assets/svg/close.svg";
 import { NavLink } from "react-router-dom";
 import "./Navbar.scss";
 
+// Definition du composant Navbar :
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

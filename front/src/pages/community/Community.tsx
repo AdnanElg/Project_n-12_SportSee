@@ -1,6 +1,8 @@
+// Importation des module :
 import Maintennace from "../../components/maintenance/Maintenance";
 import "./Community.scss";
 
+// Definition de la page Community
 const Community = () => {
   return (
     <main className="container__community">

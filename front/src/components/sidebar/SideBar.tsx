@@ -1,9 +1,11 @@
+// Importation des module :
 import yoga from "../../assets/svg/yoga.svg";
 import swim from "../../assets/svg/swim.svg";
 import bike from "../../assets/svg/bike.svg";
 import dumbbell from "../../assets/svg/dumbbell.svg";
 import "./SideBar.scss";
 
+// Definition du composant SideBar :
 const SideBar = () => {
   return (
     <aside className="sidebar">

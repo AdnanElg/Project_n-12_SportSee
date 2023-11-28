@@ -1,9 +1,11 @@
+// Definition des type
 type SessionType = {
   day: string;
   kilogram: number;
   calories: number;
 }[];
 
+// Definition du formatter UserActivity :
 class UserActivity {
   userId: number;
   sessions: SessionType;

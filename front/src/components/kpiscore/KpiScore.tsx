@@ -1,6 +1,8 @@
+// Importation des modules :
 import { PieChart, Pie, Cell } from "recharts";
 import "./KpiScore.scss";
 
+// Définition du composant KpiScore :
 const KpiScore = ({ dataScore }: { dataScore: number }) => {
   const data = [
     { name: "score", value: dataScore },

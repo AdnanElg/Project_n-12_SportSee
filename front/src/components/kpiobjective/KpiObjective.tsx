@@ -1,6 +1,8 @@
+// Importation des module :
 import "./KpiObjective.scss";
 import { LineChart, Line, Tooltip, ResponsiveContainer, XAxis } from "recharts";
 
+// Definition des type :
 type DataUserAverageSessionsType = {
   day: string;
   sessionLength: number;
@@ -24,6 +26,7 @@ type PayloadType = {
 
 type Points = { x: number; y: number }[];
 
+// Définition du composant KpiObjective :
 const KpiObjective = ({
   dataUserAverageSessions,
 }: {

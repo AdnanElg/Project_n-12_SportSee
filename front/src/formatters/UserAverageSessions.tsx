@@ -1,3 +1,4 @@
+// Definition des type :
 type SessionsType = {
   day: number;
   sessionLength: number;
@@ -7,6 +8,7 @@ type DaysType = {
   [key: number]: string;
 };
 
+// Definition  du formatter UserAverageSessions :
 class UserAverageSessions {
   userId: number;
   sessions: SessionsType;

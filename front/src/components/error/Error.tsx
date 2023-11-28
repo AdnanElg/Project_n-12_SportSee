@@ -1,7 +1,9 @@
+// Importation des modules :
 import notFound from "../../assets/svg/notFound.svg";
 import { NavLink } from "react-router-dom";
 import "./Error.scss";
 
+// Définition du composant Error :
 const Error = () => {
   return (
     <div className="container__error">

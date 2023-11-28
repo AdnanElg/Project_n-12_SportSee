@@ -1,3 +1,4 @@
+// Importation modules :
 import axios from "axios";
 import { createContext } from "react";
 import {
@@ -7,6 +8,7 @@ import {
   USER_PERFORMANCE,
 } from "../data/MockUp.tsx";
 
+// Définition des Type :
 type UserMainDataType = {
   id: number;
   userInfos: {
@@ -72,6 +74,7 @@ export const UserDataContext = createContext<UserDataType>({} as UserDataType);
 
 const useMock: string = import.meta.env.VITE_USE_MOCK;
 
+// Definition du context UserDataProvider :
 const UserDataProvider = (props: UserDataProviderProps) => {
   try {
     return (

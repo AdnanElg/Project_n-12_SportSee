@@ -1,3 +1,4 @@
+// Importation des module :
 import "./WeightChart.scss";
 import {
   BarChart,
@@ -9,6 +10,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+// Definition des type :
 type UserActivityType = {
   day: number;
   kilogram: number;
@@ -31,6 +33,7 @@ type PayloadType = {
   value: number;
 }[];
 
+// Definition du composant WeightChart :
 const WeightChart = ({ dataActivity }: { dataActivity: UserActivityType }) => {
   const CustomToolTip = ({
     active,

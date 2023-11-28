@@ -1,9 +1,12 @@
+// Importation des modules :
 import "./Header.scss";
 
+// Définition des type :
 type FirstNameType = {
   firstName: string;
 };
 
+// Définition du composant Header :
 const Header = ({ firstName }: FirstNameType) => {
   return (
     <div className="container__firstname">

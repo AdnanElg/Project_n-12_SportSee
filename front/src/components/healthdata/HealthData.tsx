@@ -1,3 +1,4 @@
+// Importation des module :
 import calories from "../../assets/svg/calories.svg";
 import proteines from "../../assets/svg/proteines.svg";
 import glucides from "../../assets/svg/glucides.svg";
@@ -5,6 +6,7 @@ import lipides from "../../assets/svg/lipides.svg";
 import { useState } from "react";
 import "./HealthData.scss";
 
+// Definition des type :
 type DataUserMainType = {
   calorieCount: number;
   proteinCount: number;
@@ -19,6 +21,7 @@ type HealthDataConfigType = {
   value: string;
 }[];
 
+// Définition du composant HealthData :
 const HealthData = ({ dataUserMain }: { dataUserMain: DataUserMainType }) => {
   const keyData = dataUserMain;
 
