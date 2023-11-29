@@ -74,7 +74,12 @@ export const UserDataContext = createContext<UserDataType>({} as UserDataType);
 
 const useMock: string = import.meta.env.VITE_USE_MOCK;
 
-// Definition du context UserDataProvider :
+/**
+ * Composant contexte fournissant des données utilisateur et des fonctions pour les récupérer.
+ * @component
+ * @param {object} props - Les propriétés du composant.
+ * @param {React.ReactNode} props.children - Les composants enfants enveloppés par le contexte.
+ */
 const UserDataProvider = (props: UserDataProviderProps) => {
   try {
     return (
@@ -201,4 +206,5 @@ const UserDataProvider = (props: UserDataProviderProps) => {
   }
 };
 
+// Exportation du composant UserDataProvider :
 export default UserDataProvider;

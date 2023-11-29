@@ -26,12 +26,18 @@ type PayloadType = {
 
 type Points = { x: number; y: number }[];
 
-// Définition du composant KpiObjective :
+/**
+ * Composant affichant un graphique de la durée moyenne des sessions utilisateur.
+ * @component
+ * @param {object} props - Les propriétés du composant.
+ * @param {DataUserAverageSessionsType} props.dataUserAverageSessions - Les données de durée moyenne des sessions utilisateur.
+ * @returns {JSX.Element} Composant KpiObjective
+ */
 const KpiObjective = ({
   dataUserAverageSessions,
 }: {
   dataUserAverageSessions: DataUserAverageSessionsType;
-}) => {
+}): JSX.Element => {
   const CustomToolTip = ({
     active,
     payload,
@@ -101,4 +107,5 @@ const KpiObjective = ({
   );
 };
 
+// Exportation du composant KpiObjective :
 export default KpiObjective;

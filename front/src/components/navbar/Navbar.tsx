@@ -6,8 +6,12 @@ import close from "../../assets/svg/close.svg";
 import { NavLink } from "react-router-dom";
 import "./Navbar.scss";
 
-// Definition du composant Navbar :
-const Navbar = () => {
+/**
+ * Composant de barre de navigation affichant le logo de SportSee et des liens vers les pages principales.
+ * @component
+ * @returns {JSX.Element} Composant Navbar
+ */
+const Navbar = (): JSX.Element => {
   const [showMenu, setShowMenu] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -63,4 +67,5 @@ const Navbar = () => {
   );
 };
 
+// Exportation du composant Navbar :
 export default Navbar;

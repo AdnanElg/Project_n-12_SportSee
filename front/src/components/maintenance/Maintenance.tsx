@@ -3,8 +3,12 @@ import maintenance from "../../assets/img/maintenance.png";
 import { NavLink } from "react-router-dom";
 import "./Maintenance.scss";
 
-// Definition du composant Maintenance :
-const Maintenance = () => {
+/**
+ * Composant affichant une page de maintenance avec une image, un message et un lien de retour à la page d'accueil.
+ * @component
+ * @returns {JSX.Element} Composant Maintenance
+ */
+const Maintenance = (): JSX.Element => {
   return (
     <div className="container__maintenance">
       <img src={maintenance} alt="image maintenance" />
@@ -16,4 +20,5 @@ const Maintenance = () => {
   );
 };
 
+// Exportation du composant Maintenance :
 export default Maintenance;

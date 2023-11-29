@@ -10,6 +10,11 @@ type DaysType = {
 
 // Definition  du formatter UserAverageSessions :
 class UserAverageSessions {
+  /**
+   * Crée une instance de UserAverageSessions.
+   * @param {number} userId - L'identifiant de l'utilisateur.
+   * @param {SessionType} sessions - Les données des sessions.
+   */
   userId: number;
   sessions: SessionsType;
 
@@ -18,6 +23,11 @@ class UserAverageSessions {
     this.sessions = sessions;
   }
 
+  /**
+   * Obtient les données formatées des sessions moyennes de l'utilisateur.
+   * @property {string} day - Le jour de la session moyenne.
+   * @property {number} sessionLength - La durée de la session moyenne.
+   */
   getFormattedData() {
     const days: DaysType = {
       1: "L",
@@ -38,4 +48,5 @@ class UserAverageSessions {
   }
 }
 
+// Exportation de la classe UserAverageSessions.
 export default UserAverageSessions;

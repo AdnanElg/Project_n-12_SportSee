@@ -10,9 +10,15 @@ type DataType = {
 
 // Definition  du formatter UserPerformance :
 class UserPerformance {
-  data: DataType;
-  kind: KindType;
+  /**
+   * Crée une instance de UserPerformance.
+   * @param {number} userId - L'identifiant de l'utilisateur.
+   * @param {KindType} kind - Les types d'activités avec leur traduction.
+   * @param {DataType} data - Les données de performance.
+   */
   userId: number;
+  kind: KindType;
+  data: DataType;
 
   constructor(userId: number, kind: KindType, data: DataType) {
     this.userId = userId;
@@ -20,6 +26,11 @@ class UserPerformance {
     this.data = data;
   }
 
+  /**
+   * Obtient les données formatées de la performance de l'utilisateur.
+   * @property {number} value - La valeur de la performance.
+   * @property {string} kind - Le type d'activité traduit.
+   */
   getFormattedData() {
     const kindTranslations: KindType = {
       1: "Cardio",
@@ -38,4 +49,5 @@ class UserPerformance {
   }
 }
 
+// Exportation de la classe UserPerformance.
 export default UserPerformance;

@@ -1,5 +1,6 @@
 // Importation des modules :
 import "./Dashboard.scss";
+import spinner from "../../assets/svg/spinner.svg";
 import { UserDataContext } from "../../context/UserDataProvider";
 import { useParams, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
@@ -13,8 +14,12 @@ import UserPerformance from "../../formatters/UserPerformance";
 import UserAverageSessions from "../../formatters/UserAverageSessions";
 import UserActivity from "../../formatters/UserActivity";
 
-// Definition de la page Dashboard :
-const Dashboard = () => {
+/**
+ * Composant représentant la page du tableau de bord de l'utilisateur.
+ * @component
+ * @returns {JSX.Element | null} Composant du tableau de bord.
+ */
+const Dashboard = (): JSX.Element | null => {
   const { id } = useParams();
   const idAsString: string | undefined = id;
   const idAsNumber: number | undefined = Number(idAsString);
@@ -27,6 +32,7 @@ const Dashboard = () => {
     }
   }, []);
 
+  const [loading, setLoading] = useState<boolean>(true);
   const [dashboardData, setDashboardData] = useState<null | JSX.Element>(null);
 
   const {
@@ -90,8 +96,10 @@ const Dashboard = () => {
             </main>
           );
           setDashboardData(dataToRender);
+          setLoading(false);
         }
       } catch (error) {
+        setLoading(false);
         throw new Error(
           "An error occurred while retrieving data from the server " + error
         );
@@ -100,7 +108,14 @@ const Dashboard = () => {
     fetchData();
   }, []);
 
-  return dashboardData;
+  return loading ? (
+    <div id="loading">
+      <img src={spinner} alt="loader" />
+    </div>
+  ) : (
+    dashboardData
+  );
 };
 
+// Exportation de la page Dashboard :
 export default Dashboard;

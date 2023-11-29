@@ -2,8 +2,14 @@
 import { PieChart, Pie, Cell } from "recharts";
 import "./KpiScore.scss";
 
-// Définition du composant KpiScore :
-const KpiScore = ({ dataScore }: { dataScore: number }) => {
+/**
+ * Composant affichant le score en pourcentage par rapport à l'objectif.
+ * @component
+ * @param {object} props - Les propriétés du composant.
+ * @param {number} props.dataScore - Le score à afficher (compris entre 0 et 1).
+ * @returns {JSX.Element} Composant KpiScore
+ */
+const KpiScore = ({ dataScore }: { dataScore: number }): JSX.Element => {
   const data = [
     { name: "score", value: dataScore },
     { name: "total", value: 1 - dataScore },
@@ -43,4 +49,5 @@ const KpiScore = ({ dataScore }: { dataScore: number }) => {
   );
 };
 
+// Exportation du composant KpiScore :
 export default KpiScore;

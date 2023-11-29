@@ -3,8 +3,13 @@ import notFound from "../../assets/svg/notFound.svg";
 import { NavLink } from "react-router-dom";
 import "./Error.scss";
 
-// Définition du composant Error :
-const Error = () => {
+/**
+ * Composant de gestion des erreurs 404.
+ * Affiche une image 404 avec un message d'erreur et un lien de retour vers la page d'accueil.
+ * @component
+ * @returns {JSX.Element} Composant Error
+ */
+const Error = (): JSX.Element => {
   return (
     <div className="container__error">
       <img src={notFound} alt="image 404" />
@@ -16,4 +21,5 @@ const Error = () => {
   );
 };
 
+// Exportation du composant Error :
 export default Error;

@@ -6,8 +6,13 @@ type FirstNameType = {
   firstName: string;
 };
 
-// Définition du composant Header :
-const Header = ({ firstName }: FirstNameType) => {
+/**
+ * Composant d'en-tête affichant un message de bienvenue avec un prénom.
+ * @component
+ * @param {FirstNameType} props - Les propriétés du composant.
+ * @returns {JSX.Element} Composant Header
+ */
+const Header = ({ firstName }: FirstNameType): JSX.Element => {
   return (
     <div className="container__firstname">
       <h1>
@@ -18,4 +23,5 @@ const Header = ({ firstName }: FirstNameType) => {
   );
 };
 
+// Exportation du composant Error :
 export default Header;

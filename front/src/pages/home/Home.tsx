@@ -2,8 +2,12 @@
 import Users from "../../components/users/Users";
 import "./Home.scss";
 
-// Definition de la page Home :
-const Home = () => {
+/**
+ * Composant représentant la page d'accueil.
+ * @component
+ * @returns {JSX.Element} Composant de la page d'accueil.
+ */
+const Home = (): JSX.Element => {
   return (
     <section className="container__home">
       <Users />
@@ -11,4 +15,5 @@ const Home = () => {
   );
 };
 
+// Exportation de la page Home :
 export default Home;

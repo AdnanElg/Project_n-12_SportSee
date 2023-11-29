@@ -21,8 +21,18 @@ type HealthDataConfigType = {
   value: string;
 }[];
 
-// Définition du composant HealthData :
-const HealthData = ({ dataUserMain }: { dataUserMain: DataUserMainType }) => {
+/**
+ * Composant affichant les données de santé de l'utilisateur, telles que les calories, les protéines, les glucides et les lipides.
+ * @component
+ * @param {object} props - Les propriétés du composant.
+ * @param {DataUserMainType} props.dataUserMain - Les données principales de l'utilisateur.
+ * @returns {JSX.Element} Composant HealthData
+ */
+const HealthData = ({
+  dataUserMain,
+}: {
+  dataUserMain: DataUserMainType;
+}): JSX.Element => {
   const keyData = dataUserMain;
 
   const [healthData] = useState<HealthDataConfigType>([
@@ -67,4 +77,5 @@ const HealthData = ({ dataUserMain }: { dataUserMain: DataUserMainType }) => {
   );
 };
 
+// Exportation du composant HealthData :
 export default HealthData;

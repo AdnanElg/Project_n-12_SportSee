@@ -2,8 +2,12 @@
 import Maintennace from "../../components/maintenance/Maintenance";
 import "./Community.scss";
 
-// Definition de la page Community
-const Community = () => {
+/**
+ * Composant représentant la page de la communauté.
+ * @component
+ * @returns {JSX.Element} Composant de la page de la communauté.
+ */
+const Community = (): JSX.Element => {
   return (
     <main className="container__community">
       <section className="container__community__section">
@@ -13,4 +17,5 @@ const Community = () => {
   );
 };
 
+// Exportation de la page Community :
 export default Community;

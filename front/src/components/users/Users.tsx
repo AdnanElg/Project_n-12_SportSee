@@ -5,8 +5,12 @@ import profileWoman from "../../assets/img/profileWoman.png";
 import { useState } from "react";
 import "./Users.scss";
 
-// Definition du composant Users :
-const Users = () => {
+/**
+ * Composant affichant une liste d'utilisateurs avec des liens vers leurs profils individuels.
+ * @component
+ * @returns {JSX.Element} Composant Users
+ */
+const Users = (): JSX.Element => {
   const [dataUser] = useState([
     {
       id: 12,
@@ -43,4 +47,5 @@ const Users = () => {
   );
 };
 
+// Exportation du composant Users :
 export default Users;

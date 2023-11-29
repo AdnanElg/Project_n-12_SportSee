@@ -1,4 +1,4 @@
-// Importation des modules nécessaires :
+// Importation des modules :
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/home/Home";
@@ -9,8 +9,12 @@ import Community from "./pages/community/Community";
 import NotFound from "./pages/notfound/NotFound";
 import SideBar from "./components/sidebar/SideBar";
 
-// Définition du composant App :
-const App = () => {
+/**
+ * Composant principal représentant l'application.
+ * @component
+ * @returns {JSX.Element} Composant de l'application.
+ */
+const App = (): JSX.Element => {
   return (
     <>
       <Navbar />
@@ -27,4 +31,5 @@ const App = () => {
   );
 };
 
+// Exportation de l'App :
 export default App;

@@ -2,8 +2,12 @@
 import Maintenance from "../../components/maintenance/Maintenance";
 import "./Profile.scss";
 
-// Definition de la page Profile :
-const Profile = () => {
+/**
+ * Composant représentant la page Profile (Profil utilisateur).
+ * @component
+ * @returns {JSX.Element} Composant de la page Profile.
+ */
+const Profile = (): JSX.Element => {
   return (
     <main className="container__profile">
       <section className="container__profile__section">
@@ -13,4 +17,5 @@ const Profile = () => {
   );
 };
 
+// Exportation de la page Profile :
 export default Profile;

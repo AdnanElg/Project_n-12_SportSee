@@ -33,8 +33,18 @@ type PayloadType = {
   value: number;
 }[];
 
-// Definition du composant WeightChart :
-const WeightChart = ({ dataActivity }: { dataActivity: UserActivityType }) => {
+/**
+ * Composant affichant un graphique en barres représentant l'activité quotidienne avec le poids et les calories brûlées.
+ * @component
+ * @param {object} props - Les propriétés du composant.
+ * @param {UserActivityType} props.dataActivity - Les données d'activité utilisateur.
+ * @returns {JSX.Element} Composant WeightChart
+ */
+const WeightChart = ({
+  dataActivity,
+}: {
+  dataActivity: UserActivityType;
+}): JSX.Element => {
   const CustomToolTip = ({
     active,
     payload,
@@ -109,4 +119,5 @@ const WeightChart = ({ dataActivity }: { dataActivity: UserActivityType }) => {
   );
 };
 
+// Exportation du composant WeightChart :
 export default WeightChart;

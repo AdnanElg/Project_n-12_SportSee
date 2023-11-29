@@ -14,12 +14,18 @@ type DataPerformanceType = {
   kind: string;
 }[];
 
-// Définition du composant KpiPerformance :
+/**
+ * Composant affichant un graphique de performance sous forme de radar.
+ * @component
+ * @param {object} props - Les propriétés du composant.
+ * @param {DataPerformanceType} props.dataPerformance - Les données de performance.
+ * @returns {JSX.Element} Composant KpiPerformance
+ */
 const KpiPerformance = ({
   dataPerformance,
 }: {
   dataPerformance: DataPerformanceType;
-}) => {
+}): JSX.Element => {
   return (
     <div className="container__kpiperformance">
       <ResponsiveContainer minWidth={230} minHeight={250}>
@@ -36,4 +42,5 @@ const KpiPerformance = ({
   );
 };
 
+// Exportation du composant KpiPerformance :
 export default KpiPerformance;
