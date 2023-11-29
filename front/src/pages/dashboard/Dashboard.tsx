@@ -19,7 +19,7 @@ import UserActivity from "../../formatters/UserActivity";
  * @component
  * @returns {JSX.Element | null} Composant du tableau de bord.
  */
-const Dashboard = (): JSX.Element | null => {
+const Dashboard = () => {
   const { id } = useParams();
   const idAsString: string | undefined = id;
   const idAsNumber: number | undefined = Number(idAsString);

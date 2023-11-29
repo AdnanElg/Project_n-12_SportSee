@@ -10,7 +10,7 @@ import "./Users.scss";
  * @component
  * @returns {JSX.Element} Composant Users
  */
-const Users = (): JSX.Element => {
+const Users = () => {
   const [dataUser] = useState([
     {
       id: 12,

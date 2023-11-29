@@ -10,7 +10,7 @@ import "./SideBar.scss";
  * @component
  * @returns {JSX.Element} Composant SideBar
  */
-const SideBar = (): JSX.Element => {
+const SideBar = () => {
   return (
     <aside className="sidebar">
       <ul>

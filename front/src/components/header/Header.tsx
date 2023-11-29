@@ -12,7 +12,7 @@ type FirstNameType = {
  * @param {FirstNameType} props - Les propriétés du composant.
  * @returns {JSX.Element} Composant Header
  */
-const Header = ({ firstName }: FirstNameType): JSX.Element => {
+const Header = ({ firstName }: FirstNameType) => {
   return (
     <div className="container__firstname">
       <h1>

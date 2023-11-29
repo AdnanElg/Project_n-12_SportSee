@@ -14,7 +14,7 @@ import SideBar from "./components/sidebar/SideBar";
  * @component
  * @returns {JSX.Element} Composant de l'application.
  */
-const App = (): JSX.Element => {
+const App = () => {
   return (
     <>
       <Navbar />

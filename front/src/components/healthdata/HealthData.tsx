@@ -28,11 +28,7 @@ type HealthDataConfigType = {
  * @param {DataUserMainType} props.dataUserMain - Les données principales de l'utilisateur.
  * @returns {JSX.Element} Composant HealthData
  */
-const HealthData = ({
-  dataUserMain,
-}: {
-  dataUserMain: DataUserMainType;
-}): JSX.Element => {
+const HealthData = ({ dataUserMain }: { dataUserMain: DataUserMainType }) => {
   const keyData = dataUserMain;
 
   const [healthData] = useState<HealthDataConfigType>([

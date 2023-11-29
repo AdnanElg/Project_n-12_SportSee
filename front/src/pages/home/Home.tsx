@@ -7,7 +7,7 @@ import "./Home.scss";
  * @component
  * @returns {JSX.Element} Composant de la page d'accueil.
  */
-const Home = (): JSX.Element => {
+const Home = () => {
   return (
     <section className="container__home">
       <Users />

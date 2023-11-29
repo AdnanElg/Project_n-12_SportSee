@@ -7,7 +7,7 @@ import "./Settings.scss";
  * @component
  * @returns {JSX.Element} Composant de la page Settings.
  */
-const Settings = (): JSX.Element => {
+const Settings = () => {
   return (
     <main className="container__settings">
       <section className="container__settings__section">

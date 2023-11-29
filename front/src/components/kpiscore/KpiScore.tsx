@@ -9,7 +9,7 @@ import "./KpiScore.scss";
  * @param {number} props.dataScore - Le score à afficher (compris entre 0 et 1).
  * @returns {JSX.Element} Composant KpiScore
  */
-const KpiScore = ({ dataScore }: { dataScore: number }): JSX.Element => {
+const KpiScore = ({ dataScore }: { dataScore: number }) => {
   const data = [
     { name: "score", value: dataScore },
     { name: "total", value: 1 - dataScore },

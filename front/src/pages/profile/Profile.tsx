@@ -7,7 +7,7 @@ import "./Profile.scss";
  * @component
  * @returns {JSX.Element} Composant de la page Profile.
  */
-const Profile = (): JSX.Element => {
+const Profile = () => {
   return (
     <main className="container__profile">
       <section className="container__profile__section">

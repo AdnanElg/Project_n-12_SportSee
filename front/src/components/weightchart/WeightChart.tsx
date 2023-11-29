@@ -40,11 +40,7 @@ type PayloadType = {
  * @param {UserActivityType} props.dataActivity - Les données d'activité utilisateur.
  * @returns {JSX.Element} Composant WeightChart
  */
-const WeightChart = ({
-  dataActivity,
-}: {
-  dataActivity: UserActivityType;
-}): JSX.Element => {
+const WeightChart = ({ dataActivity }: { dataActivity: UserActivityType }) => {
   const CustomToolTip = ({
     active,
     payload,

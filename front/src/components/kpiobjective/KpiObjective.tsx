@@ -37,7 +37,7 @@ const KpiObjective = ({
   dataUserAverageSessions,
 }: {
   dataUserAverageSessions: DataUserAverageSessionsType;
-}): JSX.Element => {
+}) => {
   const CustomToolTip = ({
     active,
     payload,

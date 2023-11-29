@@ -8,7 +8,7 @@ import "./Maintenance.scss";
  * @component
  * @returns {JSX.Element} Composant Maintenance
  */
-const Maintenance = (): JSX.Element => {
+const Maintenance = () => {
   return (
     <div className="container__maintenance">
       <img src={maintenance} alt="image maintenance" />

@@ -25,7 +25,7 @@ const KpiPerformance = ({
   dataPerformance,
 }: {
   dataPerformance: DataPerformanceType;
-}): JSX.Element => {
+}) => {
   return (
     <div className="container__kpiperformance">
       <ResponsiveContainer minWidth={230} minHeight={250}>

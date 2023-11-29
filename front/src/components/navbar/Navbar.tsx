@@ -11,7 +11,7 @@ import "./Navbar.scss";
  * @component
  * @returns {JSX.Element} Composant Navbar
  */
-const Navbar = (): JSX.Element => {
+const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
