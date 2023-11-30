@@ -8,10 +8,8 @@ import Settings from "./pages/settings/Settings";
 import Community from "./pages/community/Community";
 import NotFound from "./pages/notfound/NotFound";
 import SideBar from "./components/sidebar/SideBar";
-
 /**
  * Composant principal représentant l'application.
- * @namespace
  * @component
  * @author  El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @returns {JSX.Element} Composant de l'application.

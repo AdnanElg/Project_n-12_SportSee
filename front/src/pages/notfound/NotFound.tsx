@@ -4,7 +4,6 @@ import "./NotFound.scss";
 
 /**
  * Composant représentant la page NotFound (Page non trouvée).
- * @namespace
  * @component
  * @author  El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @returns {JSX.Element} Composant de la page NotFound.

@@ -35,9 +35,9 @@ type PayloadType = {
 
 /**
  * Composant affichant un graphique en barres représentant l'activité quotidienne avec le poids et les calories brûlées.
- * @namespace
  * @component
  * @author  El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
+ * @see {@link https://recharts.org/en-US/examples/CustomContentOfTooltip} pour plus d'informations sur l'élément `BarChart` de l'API recharts
  * @param {object} props - Les propriétés du composant.
  * @param {UserActivityType} props.dataActivity - Les données d'activité utilisateur.
  * @returns {JSX.Element} Composant WeightChart

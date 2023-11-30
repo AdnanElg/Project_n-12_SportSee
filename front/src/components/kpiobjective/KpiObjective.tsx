@@ -28,9 +28,9 @@ type Points = { x: number; y: number }[];
 
 /**
  * Composant affichant un graphique de la durée moyenne des sessions utilisateur.
- * @namespace
  * @component
  * @author  El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
+ * @see {@link https://recharts.org/en-US/examples/CustomizedLabelLineChart} pour plus d'informations sur l'élément `LineChart` de l'API recharts
  * @param {object} props - Les propriétés du composant.
  * @param {DataUserAverageSessionsType} props.dataUserAverageSessions - Les données de durée moyenne des sessions utilisateur.
  * @returns {JSX.Element} Composant KpiObjective

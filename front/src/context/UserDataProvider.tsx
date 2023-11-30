@@ -80,7 +80,6 @@ const userApiPerformance = import.meta.env.VITE_USER_API_PERFORMANCE;
 
 /**
  * Composant contexte fournissant des données utilisateur et des fonctions pour les récupérer.
- * @namespace
  * @component
  * @author  El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @param {object} props - Les propriétés du composant.

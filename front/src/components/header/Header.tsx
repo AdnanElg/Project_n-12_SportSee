@@ -8,7 +8,6 @@ type FirstNameType = {
 
 /**
  * Composant d'en-tête affichant un message de bienvenue avec un prénom.
- * @namespace
  * @component
  * @author  El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @param {FirstNameType} props - Les propriétés du composant.
