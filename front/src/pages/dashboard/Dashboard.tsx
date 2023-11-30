@@ -17,7 +17,7 @@ import UserActivity from "../../formatters/UserActivity";
 /**
  * Composant représentant la page du tableau de bord de l'utilisateur.
  * @component
- * @author  El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
+ * @author El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @returns {JSX.Element | null} Composant du tableau de bord.
  */
 const Dashboard = () => {

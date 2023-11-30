@@ -9,7 +9,7 @@ import "./Navbar.scss";
 /**
  * Composant de barre de navigation affichant le logo de SportSee et des liens vers les pages principales.
  * @component
- * @author  El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
+ * @author El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @returns {JSX.Element} Composant Navbar
  */
 const Navbar = () => {

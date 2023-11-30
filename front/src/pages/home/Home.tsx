@@ -5,7 +5,7 @@ import "./Home.scss";
 /**
  * Composant représentant la page d'accueil.
  * @component
- * @author  El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
+ * @author El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @returns {JSX.Element} Composant de la page d'accueil.
  */
 const Home = () => {

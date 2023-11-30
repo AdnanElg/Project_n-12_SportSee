@@ -6,7 +6,7 @@ import "./Maintenance.scss";
 /**
  * Composant affichant une page de maintenance avec une image, un message et un lien de retour à la page d'accueil.
  * @component
- * @author  El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
+ * @author El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @returns {JSX.Element} Composant Maintenance
  */
 const Maintenance = () => {

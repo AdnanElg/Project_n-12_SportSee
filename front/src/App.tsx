@@ -11,7 +11,7 @@ import SideBar from "./components/sidebar/SideBar";
 /**
  * Composant principal représentant l'application.
  * @component
- * @author  El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
+ * @author El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @returns {JSX.Element} Composant de l'application.
  */
 const App = () => {

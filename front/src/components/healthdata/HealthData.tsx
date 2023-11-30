@@ -24,7 +24,7 @@ type HealthDataConfigType = {
 /**
  * Composant affichant les données de santé de l'utilisateur, telles que les calories, les protéines, les glucides et les lipides.
  * @component
- * @author  El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
+ * @author El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @param {object} props - Les propriétés du composant.
  * @param {DataUserMainType} props.dataUserMain - Les données principales de l'utilisateur.
  * @returns {JSX.Element} Composant HealthData

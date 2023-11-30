@@ -5,7 +5,7 @@ import "./KpiScore.scss";
 /**
  * Composant affichant le score en pourcentage par rapport à l'objectif.
  * @component
- * @author  El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
+ * @author El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @see {@link https://recharts.org/en-US/examples/PieChartWithPaddingAngle} pour plus d'informations sur l'élément `PieChart` de l'API recharts
  * @param {object} props - Les propriétés du composant.
  * @param {number} props.dataScore - Le score à afficher (compris entre 0 et 1).

@@ -9,11 +9,12 @@ type FirstNameType = {
 /**
  * Composant d'en-tête affichant un message de bienvenue avec un prénom.
  * @component
- * @author  El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
+ * @author El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @param {FirstNameType} props - Les propriétés du composant.
  * @returns {JSX.Element} Composant Header
  */
 const Header = ({ firstName }: FirstNameType) => {
+  console.log(firstName);
   return (
     <div className="container__firstname">
       <h1>

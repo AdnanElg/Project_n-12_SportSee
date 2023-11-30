@@ -8,7 +8,7 @@ import "./SideBar.scss";
 /**
  * Composant représentant une barre latérale avec des icônes d'activités et une mention de copyright.
  * @component
- * @author  El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
+ * @author El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @returns {JSX.Element} Composant SideBar
  */
 const SideBar = () => {

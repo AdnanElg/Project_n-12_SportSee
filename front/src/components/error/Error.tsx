@@ -7,7 +7,7 @@ import "./Error.scss";
  * Composant de gestion des erreurs 404.
  * Affiche une image 404 avec un message d'erreur et un lien de retour vers la page d'accueil.
  * @component
- * @author  El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
+ * @author El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @returns {JSX.Element} Composant Error
  */
 const Error = () => {

@@ -17,7 +17,7 @@ type DataPerformanceType = {
 /**
  * Composant affichant un graphique de performance sous forme de radar.
  * @component
- * @author  El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
+ * @author El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @see {@link https://recharts.org/en-US/examples/SimpleRadarChart} pour plus d'informations sur l'élément `RadarChart` de l'API recharts
  * @param {object} props - Les propriétés du composant.
  * @param {DataPerformanceType} props.dataPerformance - Les données de performance.
