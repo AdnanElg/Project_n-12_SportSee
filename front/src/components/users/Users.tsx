@@ -7,7 +7,9 @@ import "./Users.scss";
 
 /**
  * Composant affichant une liste d'utilisateurs avec des liens vers leurs profils individuels.
+ * @namespace
  * @component
+ * @author  El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @returns {JSX.Element} Composant Users
  */
 const Users = () => {

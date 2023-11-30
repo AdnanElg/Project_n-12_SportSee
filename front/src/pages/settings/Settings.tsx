@@ -4,7 +4,10 @@ import "./Settings.scss";
 
 /**
  * Composant représentant la page Settings (Paramètres de l'application).
+ * @namespace
+ * @namespace
  * @component
+ * @author  El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @returns {JSX.Element} Composant de la page Settings.
  */
 const Settings = () => {

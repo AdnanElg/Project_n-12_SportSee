@@ -4,7 +4,9 @@ import "./Profile.scss";
 
 /**
  * Composant représentant la page Profile (Profil utilisateur).
+ * @namespace
  * @component
+ * @author  El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @returns {JSX.Element} Composant de la page Profile.
  */
 const Profile = () => {

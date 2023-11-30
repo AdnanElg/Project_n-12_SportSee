@@ -16,7 +16,9 @@ type DataPerformanceType = {
 
 /**
  * Composant affichant un graphique de performance sous forme de radar.
+ * @namespace
  * @component
+ * @author  El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @param {object} props - Les propriétés du composant.
  * @param {DataPerformanceType} props.dataPerformance - Les données de performance.
  * @returns {JSX.Element} Composant KpiPerformance

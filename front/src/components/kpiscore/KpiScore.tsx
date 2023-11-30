@@ -4,7 +4,9 @@ import "./KpiScore.scss";
 
 /**
  * Composant affichant le score en pourcentage par rapport à l'objectif.
+ * @namespace
  * @component
+ * @author  El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @param {object} props - Les propriétés du composant.
  * @param {number} props.dataScore - Le score à afficher (compris entre 0 et 1).
  * @returns {JSX.Element} Composant KpiScore

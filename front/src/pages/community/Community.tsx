@@ -4,7 +4,9 @@ import "./Community.scss";
 
 /**
  * Composant représentant la page de la communauté.
+ * @namespace
  * @component
+ * @author  El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @returns {JSX.Element} Composant de la page de la communauté.
  */
 const Community = () => {

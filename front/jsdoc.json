@@ -1,4 +1,5 @@
 {
+  "plugins": ["plugins/markdown"],
   "tags": {
     "allowUnknownTags": true,
     "dictionaries": ["jsdoc", "closure"]
@@ -8,19 +9,39 @@
     "includePattern": "\\.(jsx|js|ts|tsx)$",
     "excludePattern": "(node_modules/|docs)"
   },
-  "plugins": ["plugins/markdown", "node_modules/better-docs/component"],
+
   "templates": {
-    "cleverLinks": true,
-    "monospaceLinks": true,
-    "better-docs": {
-      "name": "My React components"
-    }
+    "cleverLinks": false,
+    "monospaceLinks": false
   },
+
   "opts": {
+    "destination": "docs",
+    "search": true,
     "recurse": true,
-    "encoding": "utf8",
-    "destination": "./docs/",
-    "readme": "./README.md",
-    "template": "./node_modules/better-docs/"
+    "verbose": true,
+    "readme": "README.md",
+    "template": "node_modules/clean-jsdoc-theme",
+    "theme_opts": {
+      "default_theme": "light",
+      "title": "SportSee Documentation",
+      "homepageTitle": "SportSee documentation",
+      "footer": "Projet 12 du parcours OpenClassrooms Développeur JavaScript React - El Ghalbzouri-Adnan Léglise - 2023",
+      "static_dir": ["public/favicon.png"],
+      "favicon": "public/favicon.png",
+      "includeFilesListInHomepage": true,
+      "menu": [
+        {
+          "title": "Source",
+          "link": "https://github.com/AdnanElg/Project_n-12_SportSee.git",
+          "target": "_blank"
+        }
+      ]
+    },
+    "displayModuleHeader": true
+  },
+  "markdown": {
+    "hardwrap": false,
+    "idInHeadings": true
   }
 }

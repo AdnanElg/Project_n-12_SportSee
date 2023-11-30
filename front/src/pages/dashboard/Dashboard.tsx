@@ -16,7 +16,9 @@ import UserActivity from "../../formatters/UserActivity";
 
 /**
  * Composant représentant la page du tableau de bord de l'utilisateur.
+ * @namespace
  * @component
+ * @author  El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @returns {JSX.Element | null} Composant du tableau de bord.
  */
 const Dashboard = () => {
@@ -30,7 +32,7 @@ const Dashboard = () => {
     if (idAsNumber !== 12 && idAsNumber !== 18) {
       navigate("/404");
     }
-  }, []);
+  }, [idAsNumber, navigate]);
 
   const [loading, setLoading] = useState<boolean>(true);
   const [dashboardData, setDashboardData] = useState<null | JSX.Element>(null);
@@ -106,7 +108,13 @@ const Dashboard = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [
+    getUserMainData,
+    getUserPerformance,
+    getUserAverageSessions,
+    getUserActivity,
+    idAsNumber,
+  ]);
 
   return loading ? (
     <div id="loading">
