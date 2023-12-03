@@ -12,7 +12,7 @@ import "./Navbar.scss";
  * @author El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @returns {JSX.Element} Composant Navbar
  */
-const Navbar = () => {
+const Navbar = (): JSX.Element => {
   const [showMenu, setShowMenu] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 

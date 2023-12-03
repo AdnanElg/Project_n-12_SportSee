@@ -1,4 +1,7 @@
 // Importation des module :
+import { useContext, useEffect, useState } from "react";
+import { UserDataContext } from "../../context/UserDataProvider";
+import UserActivity from "../../formatters/UserActivity";
 import "./WeightChart.scss";
 import {
   BarChart,
@@ -18,18 +21,6 @@ type UserActivityType = {
 }[];
 
 type PayloadType = {
-  chartType: undefined;
-  color: string;
-  dataKey: string;
-  fill: string;
-  formatter: undefined;
-  name: string;
-  opacity: number;
-  payload: { day: number; sessionLength: number };
-  stroke: string;
-  strokeWidth: number;
-  type: undefined;
-  unit: undefined;
   value: number;
 }[];
 
@@ -42,7 +33,29 @@ type PayloadType = {
  * @param {UserActivityType} props.dataActivity - Les données d'activité utilisateur.
  * @returns {JSX.Element} Composant WeightChart
  */
-const WeightChart = ({ dataActivity }: { dataActivity: UserActivityType }) => {
+const WeightChart = ({ userId }: { userId: number }): JSX.Element => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [userActivity, setUserActivity] = useState<
+    UserActivityType | undefined
+  >(undefined);
+  const { getUserActivity } = useContext(UserDataContext);
+
+  useEffect(() => {
+    const getDataActivity = async () => {
+      const userActivity = await getUserActivity(userId);
+
+      const formattedUserActivity = new UserActivity(
+        userActivity.userId,
+        userActivity.sessions
+      );
+
+      setUserActivity(formattedUserActivity.getFormattedData());
+      setIsLoading(false);
+    };
+
+    getDataActivity();
+  }, [getUserActivity, userId]);
+
   const CustomToolTip = ({
     active,
     payload,
@@ -70,49 +83,51 @@ const WeightChart = ({ dataActivity }: { dataActivity: UserActivityType }) => {
           <li>Calories brûlées (kCal)</li>
         </ul>
       </div>
-      <ResponsiveContainer width="100%" height="100%" aspect={3}>
-        <BarChart data={dataActivity}>
-          <CartesianGrid strokeDasharray="3" vertical={false} />
-          <XAxis
-            dataKey="day"
-            tickMargin={10}
-            tickLine={false}
-            tick={{ fontWeight: "bold", color: "#9B9EAC" }}
-          />
-          <YAxis
-            domain={["dataMin-3", "dataMax+3"]}
-            tickCount={4}
-            dataKey="kilogram"
-            yAxisId="kilogram"
-            tickMargin={10}
-            orientation="right"
-            tickLine={false}
-            tick={{ fontWeight: "bold", color: "#9B9EAC" }}
-          />
-          <YAxis
-            hide
-            dataKey="calories"
-            yAxisId="calories"
-            orientation="right"
-            domain={[0, "dataMax+5"]}
-          />
-          <Tooltip content={<CustomToolTip active={false} payload={[]} />} />
-          <Bar
-            dataKey="kilogram"
-            yAxisId="kilogram"
-            fill="#282D30"
-            radius={[20, 20, 0, 0]}
-            barSize={10}
-          />
-          <Bar
-            dataKey="calories"
-            yAxisId="calories"
-            fill="#E60000"
-            radius={[20, 20, 0, 0]}
-            barSize={10}
-          />
-        </BarChart>
-      </ResponsiveContainer>
+      {!isLoading && (
+        <ResponsiveContainer width="100%" height="100%" aspect={3}>
+          <BarChart data={userActivity}>
+            <CartesianGrid strokeDasharray="3" vertical={false} />
+            <XAxis
+              dataKey="day"
+              tickMargin={10}
+              tickLine={false}
+              tick={{ fontWeight: "bold", color: "#9B9EAC" }}
+            />
+            <YAxis
+              domain={["dataMin-3", "dataMax+3"]}
+              tickCount={4}
+              dataKey="kilogram"
+              yAxisId="kilogram"
+              tickMargin={10}
+              orientation="right"
+              tickLine={false}
+              tick={{ fontWeight: "bold", color: "#9B9EAC" }}
+            />
+            <YAxis
+              hide
+              dataKey="calories"
+              yAxisId="calories"
+              orientation="right"
+              domain={[0, "dataMax+5"]}
+            />
+            <Tooltip content={<CustomToolTip active={false} payload={[]} />} />
+            <Bar
+              dataKey="kilogram"
+              yAxisId="kilogram"
+              fill="#282D30"
+              radius={[20, 20, 0, 0]}
+              barSize={10}
+            />
+            <Bar
+              dataKey="calories"
+              yAxisId="calories"
+              fill="#E60000"
+              radius={[20, 20, 0, 0]}
+              barSize={10}
+            />
+          </BarChart>
+        </ResponsiveContainer>
+      )}
     </div>
   );
 };

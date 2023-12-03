@@ -10,7 +10,7 @@ import "./Error.scss";
  * @author El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @returns {JSX.Element} Composant Error
  */
-const Error = () => {
+const Error = (): JSX.Element => {
   return (
     <div className="container__error">
       <img src={notFound} alt="image 404" />

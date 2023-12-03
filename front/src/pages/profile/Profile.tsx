@@ -8,7 +8,7 @@ import "./Profile.scss";
  * @author El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @returns {JSX.Element} Composant de la page Profile.
  */
-const Profile = () => {
+const Profile = (): JSX.Element => {
   return (
     <main className="container__profile">
       <section className="container__profile__section">

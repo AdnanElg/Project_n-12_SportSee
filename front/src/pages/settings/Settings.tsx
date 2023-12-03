@@ -8,7 +8,7 @@ import "./Settings.scss";
  * @author El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @returns {JSX.Element} Composant de la page Settings.
  */
-const Settings = () => {
+const Settings = (): JSX.Element => {
   return (
     <main className="container__settings">
       <section className="container__settings__section">

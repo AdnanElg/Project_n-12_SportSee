@@ -8,7 +8,7 @@ import "./Home.scss";
  * @author El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @returns {JSX.Element} Composant de la page d'accueil.
  */
-const Home = () => {
+const Home = (): JSX.Element => {
   return (
     <section className="container__home">
       <Users />

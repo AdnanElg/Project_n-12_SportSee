@@ -17,7 +17,7 @@ type ActivitiesType = {
  * @author El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @returns {JSX.Element} Composant SideBar
  */
-const SideBar = () => {
+const SideBar = (): JSX.Element => {
   const activities: ActivitiesType = [
     { id: 1, icon: yoga, alt: "image yoga" },
     { id: 2, icon: swim, alt: "image swim" },

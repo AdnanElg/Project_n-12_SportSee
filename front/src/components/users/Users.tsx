@@ -11,13 +11,13 @@ import "./Users.scss";
  * @author El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @returns {JSX.Element} Composant Users
  */
-const Users = () => {
+const Users = (): JSX.Element => {
   const [dataUser] = useState([
     {
       id: 12,
       picture: profileMen,
       firstName: "Karl",
-      lastName: "Ratorez",
+      lastName: "Dovineau",
     },
     {
       id: 18,

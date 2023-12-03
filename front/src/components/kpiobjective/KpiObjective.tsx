@@ -1,4 +1,7 @@
 // Importation des module :
+import { useContext, useEffect, useState } from "react";
+import { UserDataContext } from "../../context/UserDataProvider";
+import UserAverageSessions from "../../formatters/UserAverageSessions";
 import "./KpiObjective.scss";
 import { LineChart, Line, Tooltip, ResponsiveContainer, XAxis } from "recharts";
 
@@ -9,18 +12,6 @@ type DataUserAverageSessionsType = {
 }[];
 
 type PayloadType = {
-  chartType: undefined;
-  color: string;
-  dataKey: string;
-  fill: string;
-  formatter: undefined;
-  name: string;
-  opacity: number;
-  payload: { day: number; sessionLength: number };
-  stroke: string;
-  strokeWidth: number;
-  type: undefined;
-  unit: undefined;
   value: number;
 }[];
 
@@ -35,11 +26,29 @@ type Points = { x: number; y: number }[];
  * @param {DataUserAverageSessionsType} props.dataUserAverageSessions - Les données de durée moyenne des sessions utilisateur.
  * @returns {JSX.Element} Composant KpiObjective
  */
-const KpiObjective = ({
-  dataUserAverageSessions,
-}: {
-  dataUserAverageSessions: DataUserAverageSessionsType;
-}) => {
+const KpiObjective = ({ userId }: { userId: number }): JSX.Element => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [userAverageSessions, setUserAverageSessions] = useState<
+    DataUserAverageSessionsType | undefined
+  >(undefined);
+  const { getUserAverageSessions } = useContext(UserDataContext);
+
+  useEffect(() => {
+    const getDataAverageSessions = async () => {
+      const userAverageSessions = await getUserAverageSessions(userId);
+
+      const formattedUserAverageSessions = new UserAverageSessions(
+        userAverageSessions.userId,
+        userAverageSessions.sessions
+      );
+
+      setUserAverageSessions(formattedUserAverageSessions.getFormattedData());
+      setIsLoading(false);
+    };
+
+    getDataAverageSessions();
+  }, [getUserAverageSessions, userId]);
+
   const CustomToolTip = ({
     active,
     payload,
@@ -74,37 +83,39 @@ const KpiObjective = ({
       <h2 className="container__kpiobjective__title">
         Durée moyenne des sessions
       </h2>
-      <ResponsiveContainer width="100%" minHeight={250}>
-        <LineChart
-          data={dataUserAverageSessions}
-          margin={{ top: 60, right: 15, left: 15, bottom: 40 }}
-        >
-          <XAxis
-            axisLine={false}
-            tickLine={false}
-            dataKey="day"
-            tick={{
-              fill: "#fff",
-              fontWeight: "bold",
-              fontSize: "12px",
-              dy: 30,
-            }}
-            interval={0}
-          />
-          <Tooltip
-            content={<CustomToolTip active={false} payload={[]} />}
-            cursor={<CustomHover points={[]} />}
-          />
-          <Line
-            dot={false}
-            type="monotone"
-            dataKey="sessionLength"
-            stroke="#ffffff"
-            opacity={0.8}
-            strokeWidth={2.5}
-          />
-        </LineChart>
-      </ResponsiveContainer>
+      {!isLoading && (
+        <ResponsiveContainer width="100%" minHeight={250}>
+          <LineChart
+            data={userAverageSessions}
+            margin={{ top: 60, right: 15, left: 15, bottom: 40 }}
+          >
+            <XAxis
+              axisLine={false}
+              tickLine={false}
+              dataKey="day"
+              tick={{
+                fill: "#fff",
+                fontWeight: "bold",
+                fontSize: "12px",
+                dy: 30,
+              }}
+              interval={0}
+            />
+            <Tooltip
+              content={<CustomToolTip active={false} payload={[]} />}
+              cursor={<CustomHover points={[]} />}
+            />
+            <Line
+              dot={false}
+              type="monotone"
+              dataKey="sessionLength"
+              stroke="#ffffff"
+              opacity={0.8}
+              strokeWidth={2.5}
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      )}
     </div>
   );
 };

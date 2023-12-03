@@ -9,7 +9,7 @@ import {
 } from "../data/MockUp.tsx";
 
 // Définition des Type :
-type UserMainDataType = {
+export type UserMainDataType = {
   id: number;
   userInfos: {
     firstName: string;
@@ -66,17 +66,18 @@ type UserDataType = {
   ) => UserPerformanceType | Promise<UserPerformanceType>;
 };
 
-type UserDataProviderProps = {
+type UserDataProviderPropsType = {
   children: React.ReactNode;
 };
 
 export const UserDataContext = createContext<UserDataType>({} as UserDataType);
 
 const useMock: string = import.meta.env.VITE_ENABLE_MOCKING;
-const userApiUrl = import.meta.env.VITE_USER_API_URL;
-const userApiActivity = import.meta.env.VITE_USER_API_ACTIVITY;
-const userApiAverageSessions = import.meta.env.VITE_USER_API_AVERAGE_SESSIONS;
-const userApiPerformance = import.meta.env.VITE_USER_API_PERFORMANCE;
+const userApiUrl: string = import.meta.env.VITE_USER_API_URL;
+const userApiActivity: string = import.meta.env.VITE_USER_API_ACTIVITY;
+const userApiAverageSessions: string = import.meta.env
+  .VITE_USER_API_AVERAGE_SESSIONS;
+const userApiPerformance: string = import.meta.env.VITE_USER_API_PERFORMANCE;
 
 /**
  * Composant contexte fournissant des données utilisateur et des fonctions pour les récupérer.
@@ -85,7 +86,7 @@ const userApiPerformance = import.meta.env.VITE_USER_API_PERFORMANCE;
  * @param {object} props - Les propriétés du composant.
  * @param {React.ReactNode} props.children - Les composants enfants enveloppés par le contexte.
  */
-const UserDataProvider = (props: UserDataProviderProps) => {
+const UserDataProvider = (props: UserDataProviderPropsType) => {
   try {
     return (
       <UserDataContext.Provider
@@ -109,7 +110,6 @@ const UserDataProvider = (props: UserDataProviderProps) => {
                   );
                 }
                 const response = await axios.get(`${userApiUrl}${id}`);
-                console.log(response.data.data);
                 return response.data.data;
               } catch (error) {
                 throw new Error(`Error fetching user data: ${error}`);
@@ -138,7 +138,6 @@ const UserDataProvider = (props: UserDataProviderProps) => {
                 const response = await axios.get(
                   `${userApiUrl}${userId}${userApiActivity}`
                 );
-                console.log(response.data.data);
                 return response.data.data;
               } catch (error) {
                 throw new Error(`Error fetching user data: ${error}`);
@@ -167,7 +166,6 @@ const UserDataProvider = (props: UserDataProviderProps) => {
                 const response = await axios.get(
                   `${userApiUrl}${userId}${userApiAverageSessions}`
                 );
-                console.log(response.data.data);
                 return response.data.data;
               } catch (error) {
                 throw new Error(`Error fetching user data: ${error}`);
@@ -196,7 +194,6 @@ const UserDataProvider = (props: UserDataProviderProps) => {
                 const response = await axios.get(
                   `${userApiUrl}${userId}${userApiPerformance}`
                 );
-                console.log(response.data.data);
                 return response.data.data;
               } catch (error) {
                 throw new Error(`Error fetching user data: ${error}`);

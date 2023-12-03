@@ -8,7 +8,7 @@ import "./Community.scss";
  * @author El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @returns {JSX.Element} Composant de la page de la communauté.
  */
-const Community = () => {
+const Community = (): JSX.Element => {
   return (
     <main className="container__community">
       <section className="container__community__section">

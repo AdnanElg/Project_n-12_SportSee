@@ -8,7 +8,7 @@ import "./NotFound.scss";
  * @author El Ghalbzouri-Adnan <elghalbzouriadnan@gmail.com>
  * @returns {JSX.Element} Composant de la page NotFound.
  */
-const NotFound = () => {
+const NotFound = (): JSX.Element => {
   return (
     <main className="container__notfound">
       <section className="container__notfound__section">
