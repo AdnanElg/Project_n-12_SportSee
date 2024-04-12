@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "SportSee-backend",
+  "name": "sportsee-backend",
   "builds": [
     {
       "src": "./app/index.js",
